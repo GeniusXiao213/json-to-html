@@ -3,12 +3,16 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DataTable from './components/JsonlDataDisplay';
 import Header from './components/header';
+import MainArea from './components/main-area/MainArea';
+import Box from '@mui/material/Box';
 
 function App() {
   return (
     <Router>
       <Header />
-      <DataTable />
+      <Box className="App">
+      <MainArea />
+    </Box>
     </Router>
   );
 }
