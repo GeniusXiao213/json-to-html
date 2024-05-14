@@ -1,0 +1,55 @@
+.header {
+    background-color: white;
+    color: #455d89;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+
+  .logo-img {
+    text-decoration: none;
+    margin-right: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    height: 100px;
+    width: 110px;
+    flex-wrap: wrap;
+  }
+
+  .app-name {
+    vertical-align:middle;
+    font-size: x-large;
+    letter-spacing: 0.2em;
+    padding-top: 15px;
+  }
+
+
+  .login-link {
+    text-decoration: none;
+    color: #1a4382;
+    margin-right: 20px;
+    font-size: large;
+    padding-top: 35px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    vertical-align: text-bottom;
+  }
+
+  .login-icon {
+    padding-right: 5px;
+    vertical-align: middle;
+  }
+
+  @media screen and (max-width: 700px) {
+    .app-name {
+        font-size: medium;
+        vertical-align:middle;
+        letter-spacing: 0.2em;
+        padding-top: 28px;
+      }
+ }
