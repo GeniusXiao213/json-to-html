@@ -1,0 +1,38 @@
+.content-text{
+    font-size: 1.1rem !important;
+    font-weight: 300 !important;
+    text-align: start;
+    margin: 2em 0 1em !important;
+    margin-top: 200px;
+}
+
+.header-text{
+    color: #9ab5c1 !important;
+    display: block;
+    font-size: 3rem !important;
+    line-height: 1 !important;
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+    text-transform: uppercase !important;
+}
+
+/* .header-block-text{
+    
+} */
+/* header in block display */
+
+.title-text{
+    color:darkblue;
+}
+
+.divider{
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    border-width: 2px !important;
+    border-color: #829bbb !important;
+}
+
+.cards-container{
+    display: flex;
+    width: 100%;
+}
