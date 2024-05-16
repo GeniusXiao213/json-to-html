@@ -1,0 +1,28 @@
+.coverage-block-second{
+    border-style: outset;
+    color: #fff;
+    margin-left: 2px;
+    padding: 5px;
+    border-radius: 20px;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.coverage-block-first{
+    border-style: outset;
+    color: #fff;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 5px;
+    border-radius: 20px;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.coverage-block-first:hover{
+    color:black !important;
+}
+
+.coverage-block-second:hover{
+    color:black !important;
+}
