@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    word-break: break-all;
+}
+
+.bloc-tabs {
+    display: flex;
+
+}
+
+.tabs {
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 40%;
+    background-color: #447c9c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.tabs:hover {
+    color: #e4e6fb;
+}
+
+.active-tabs {
+    border-bottom: white solid 3px;
+}
+
+.content-tabs {
+    flex-grow: 1;
+}
+
+.content {
+   padding: 20px;
+   display: none; 
+}
+
+.content h2 {
+    padding: 0px 0px 5px 0px;
+}
+
+.content hr {
+    width: 100px;
+    height: 2px;
+    margin-bottom: 5px;
+}
+
+.active-content{
+    display: block;
+    justify-items: center;
+}
+
+.right-menu{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+}
+
+.tips-icon {
+    color: white;
+    align-self: center;
+    padding-right: 15px;
+}
+
+.tips-icon:hover {
+    color: white;
+}
+
+.popup-content {
+    background: rgb(255, 255, 255);
+    width: 50%;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .popup-arrow {
+    color: rgb(255, 255, 255);
+  }
+  [role='tooltip'].popup-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  
+
+.popup-content p{
+    font-size: small;
+    font-weight: 350;
+}
+
+.popup-content h7{
+    font-weight: 600;
+}
+
+.popup-content span{
+    color: #447c9c;
+    font-weight: 500;
+}

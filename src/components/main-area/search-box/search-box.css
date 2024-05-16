@@ -1,0 +1,12 @@
+.search-box {
+    justify-content: space-around;
+}
+
+
+.search-box-header {
+    color: white;
+    text-transform: uppercase;
+    font-size: large;
+    padding: 15px;
+    font-weight: bold;
+}

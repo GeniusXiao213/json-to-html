@@ -1,0 +1,22 @@
+.input-wrapper {
+    background-color: white;
+    width: 98%;
+    height: 2rem;
+    padding: 2px 5px;
+    display: flex;
+    align-items: flex-start;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    font-size: 1.25rem;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.search-icon {
+    align-self: center;
+}
+
