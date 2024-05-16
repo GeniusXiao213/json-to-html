@@ -157,11 +157,11 @@ export const PowerSearch = () => {
                   </CardContent>
                   <Grid className='submit-form'>
                     <Button
+                      className="submit-button"
                       disabled={!dirty || !isValid}
                       variant="contained"
                       color="primary"
-                      type="Submit"
-                      className="submit-button">
+                      type="Submit">
                       Submit Search
                     </Button>
                   </Grid>
