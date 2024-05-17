@@ -37,10 +37,21 @@ const countryOptions = [
     { label: "Switzerland", value: "switzerland" },
 ]
 
+const legalFormOptions = [
+  { label: "公司", value: "corporation" },
+  { label: "有限责任公司", value: "limited-liability-company" },
+  { label: "普通合伙", value: "general-partnership" },
+  { label: "有限合伙制", value: "limited-partnership" },
+  { label: "合作社", value: "cooperative" },
+  { label: "协会", value: "association" },
+  { label: "基础", value: "foundation" },
+  { label: "独资", value: "sole-proprietorship" },
+]
+
 const statusOptions = [
-    { label: "Active", value: "active" },
-    { label: "Liquidation", value: "liquidation" },
-    { label: "Terminated", value: "terminated" },
+    { label: "活跃", value: "active" },
+    { label: "清算", value: "liquidation" },
+    { label: "终止", value: "terminated" },
 ]
 
 export const PowerSearch = () => {
@@ -61,15 +72,15 @@ export const PowerSearch = () => {
                 <Form className='power-search-form'>
                   <CardContent justify="center">
                     <Grid item container spacing={1} justify="center">
-                      <Grid item xs={12} sm={6} md={12}>
+                      <Grid item xs={12} sm={6} md={6}>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="country-label">
-                            Country
+                            国家
                           </InputLabel>
                           <Select
                             labelId="country-select-label"
                             id="country-select-label"
-                            label="All Countries"
+                            label="国家"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.country}
@@ -84,7 +95,7 @@ export const PowerSearch = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
-                          label="Place"
+                          label="地区"
                           variant="outlined"
                           fullWidth
                           name="place"
@@ -94,7 +105,7 @@ export const PowerSearch = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
-                          label="Radius"
+                          label="范围"
                           variant="outlined"
                           fullWidth
                           name="radius"
@@ -103,24 +114,35 @@ export const PowerSearch = () => {
                         />
                       </Grid>
                       <Grid item xs={12} sm={6} md={6}>
-                        <Field
-                          label="Legal Form"
-                          variant="outlined"
-                          fullWidth
-                          name="legalForm"
-                          value={values.legalForm}
-                          component={TextField}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={12}>
                         <FormControl fullWidth variant="outlined">
-                          <InputLabel id="demo-simple-select-outlined-label">
-                            Legal Status
+                          <InputLabel id="legal-form-label">
+                            法律形式
                           </InputLabel>
                           <Select
-                            labelId="demo-simple-select-outlined-label"
-                            id="demo-simple-select-outlined"
-                            label="All"
+                            labelId="legal-form-select-label"
+                            id="legal-form-select"
+                            label="法律形式"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.legalForm}
+                            name="legal-form">
+                            {legalFormOptions.map((item) => (
+                              <MenuItem key={item.value} value={item.value}>
+                                {item.label}
+                              </MenuItem>
+                            ))}
+                          </Select>
+                        </FormControl>
+                      </Grid> 
+                      <Grid item xs={12} sm={6} md={6}>
+                        <FormControl fullWidth variant="outlined">
+                          <InputLabel id="legal-status-label">
+                            法律地位
+                          </InputLabel>
+                          <Select
+                            labelId="legal-status-select-label"
+                            id="legal-status-select"
+                            label="法律地位"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.legalStatus}
@@ -135,7 +157,7 @@ export const PowerSearch = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
-                          label="Search Keywords"
+                          label="搜索关键字"
                           variant="outlined"
                           fullWidth
                           name="keywords"
@@ -145,7 +167,7 @@ export const PowerSearch = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
-                          label="Industry Segment"
+                          label="行业细分"
                           variant="outlined"
                           fullWidth
                           name="industrySegment"
@@ -162,7 +184,7 @@ export const PowerSearch = () => {
                       variant="contained"
                       color="primary"
                       type="Submit">
-                      Submit Search
+                      提交搜索
                     </Button>
                   </Grid>
                 </Form>

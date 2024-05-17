@@ -35,8 +35,9 @@ const Tabs = () => {
                         )} 
                         position="left center"
                         >
-                            <h7>Tips & Tricks</h7>
-                            <p> Our Help pages <span>Using the quick search</span> and <span>Power Search Overview</span> explain how to use  our search engine.</p>
+                            {/* Tips and Tricks */}
+                            <h7>提示和技巧</h7>
+                            <p>我们的帮助页面<span>使用快速搜索</span>和<span>强大的搜索概述</span>解释了如何使用我们的搜索引擎。</p>
                            
                         </Popup>
                         
