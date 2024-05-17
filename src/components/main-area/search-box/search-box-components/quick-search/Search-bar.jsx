@@ -11,7 +11,7 @@ export const SearchBar = () => {
         <div className="input-wrapper" >
           <SearchIcon className="search-icon" />
           {/* Company or Person */}
-          <input placeholder="Company or Person" />
+          <input placeholder="公司或个人" />
         </div>
         <div className="quick-search-filter">
           <div>
