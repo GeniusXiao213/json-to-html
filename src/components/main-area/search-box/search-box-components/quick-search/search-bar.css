@@ -20,3 +20,20 @@ input {
     align-self: center;
 }
 
+.quick-search-filter {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px 5px 3px;
+    justify-items: center;
+}
+
+.info-icon {
+    color: white;
+    margin-top: 5px;
+}
+
+.country-filter {
+    border: none;
+    width: 200px;
+    justify-self: center;
+}

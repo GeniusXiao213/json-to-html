@@ -16,7 +16,9 @@ function App() {
             <Route exact path="/login" element={<Login />} />
         </Routes>
         <MainArea />
+        <Footer />
       </Router>
+  
     </Box>    
   );
 }

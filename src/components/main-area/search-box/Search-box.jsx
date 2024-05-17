@@ -17,7 +17,7 @@ export default function SearchBox() {
         bgcolor: '#447c9c',
       }}>
         <Box className='search-box-header' >
-          European Companies Search Engine
+          欧洲公司搜索引擎
         </Box>
         <Box>
           <Tabs />

@@ -63,12 +63,12 @@ export const PowerSearch = () => {
                     <Grid item container spacing={1} justify="center">
                       <Grid item xs={12} sm={6} md={12}>
                         <FormControl fullWidth variant="outlined">
-                          <InputLabel id="demo-simple-select-outlined-label">
+                          <InputLabel id="country-label">
                             Country
                           </InputLabel>
                           <Select
-                            labelId="demo-simple-select-outlined-label"
-                            id="demo-simple-select-outlined"
+                            labelId="country-select-label"
+                            id="country-select-label"
                             label="All Countries"
                             onChange={handleChange}
                             onBlur={handleBlur}

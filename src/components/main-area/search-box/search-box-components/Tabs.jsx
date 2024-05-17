@@ -17,14 +17,17 @@ const Tabs = () => {
         <div>
             <div className="container">
                 <div className="bloc-tabs">
+                    {/* Quick Search */}
                     <button className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'}
                     
                     onClick={()=> toggleTab(1)}
-                    >Quick Search</button>
+                    >快速搜索</button>
+
+                    {/* Power Search */}
                     <button className={toggleState === 2 ? 'tabs active-tabs' : 'tabs'}
                     
                     onClick={()=> toggleTab(2)}
-                    >Power Search</button>
+                    >强力搜索</button>
                     <div className="right-menu">
                         <Popup className='popup' trigger={open => (
                         <TipsAndUpdatesOutlinedIcon className='tips-icon'>
