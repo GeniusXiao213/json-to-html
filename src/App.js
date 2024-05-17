@@ -1,22 +1,27 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import CompanyPage from './pages/CompanyPage';
 import Header from './components/header';
-import MainArea from './components/main-area/MainArea';
-import Box from '@mui/material/Box';
 import Footer from './components/footer/Footer';
+import { Box } from '@mui/material';
+
 // import JsonlDataDisplay from './components/jsonlDataDisplay';
 
 function App() {
   return (
-    <Router>
-      <Header />
       <Box className="App">
-          <MainArea />
-          {/* <JsonlDataDisplay /> */}
-      </Box>
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <Routes>
+            <Route exact path='/' element={<MainPage />}/>
+            <Route exact path='company' element={<CompanyPage />}/>
+        </Routes>
+        <Footer />
+      </Router>
+
+      </Box>   
   );
 }
 
