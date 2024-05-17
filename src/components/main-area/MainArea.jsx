@@ -8,6 +8,7 @@ function MainArea() {
   return (
     <Box className="mainarea">
       <SearchBox />
+      
       <TextArea />
     </Box>
 
