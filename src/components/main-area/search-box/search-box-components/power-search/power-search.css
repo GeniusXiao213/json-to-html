@@ -1,0 +1,13 @@
+.power-search-form{
+    background-color: white;
+    justify-self: center;
+}
+
+.submit-form {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.submit-button {
+    margin: 15px;
+}
+
