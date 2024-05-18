@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../main-area/main-area.css';
 import '../../main-area/text-area/text-area.css';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { Button, Box, Divider, Typography } from '@mui/material';

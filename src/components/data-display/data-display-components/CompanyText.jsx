@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box,Divider, Container} from '@mui/material';
 import '../../main-area/text-area/text-area.css';
-import '../../main-area/main-area.css';
 
 function CompanyText() {
   return (
