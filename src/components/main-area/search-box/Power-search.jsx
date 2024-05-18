@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Box, Grid, Card, CardContent, CardActions, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
-import './power-search.css'
-import { Formik, Form, Field } from "formik"
-import { TextField } from "formik-material-ui"
+import { Formik, Form, Field } from "formik";
+import { TextField } from "formik-material-ui";
+import { GB, AT, BE, CY, CZ, DK, FI, FR, DE, GR, IL, LU, MT, NO, PL, ES, SE, CH } from 'country-flag-icons/react/3x2';
+import './powersearch.css';
 
 
 //Data
@@ -17,24 +18,24 @@ const initialValues = {
 }
 
 const countryOptions = [
-    { label: "United Kingdom", value: "united-kingdom" },
-    { label: "Austria", value: "austria" },
-    { label: "Belgium", value: "belgium" },
-    { label: "Cyprus", value: "cyprus" },
-    { label: "Czech Republic", value: "czech-republic" },
-    { label: "Denmark", value: "denmark" },
-    { label: "Finland", value: "finland" },
-    { label: "France", value: "france" },
-    { label: "Germany", value: "germany" },
-    { label: "Greece", value: "greece" },
-    { label: "Israel", value: "israel" },
-    { label: "Luxembourg", value: "luxembourg" },
-    { label: "Malta", value: "malta" },
-    { label: "Norway", value: "norway" },
-    { label: "Poland", value: "poland" },
-    { label: "Spain", value: "spain" },
-    { label: "Sweden", value: "sweden" },
-    { label: "Switzerland", value: "switzerland" },
+    { label: "United Kingdom", value: "united-kingdom", countryCode: "GB" },
+    { label: "Austria", value: "austria", countryCode: "AT" },
+    { label: "Belgium", value: "belgium", countryCode: "BE" },
+    { label: "Cyprus", value: "cyprus", countryCode: "CY" },
+    { label: "Czech Republic", value: "czech-republic", countryCode: "CZ" },
+    { label: "Denmark", value: "denmark", countryCode: "DK" },
+    { label: "Finland", value: "finland", countryCode: "FI" },
+    { label: "France", value: "france", countryCode: "FR" },
+    { label: "Germany", value: "germany", countryCode: "DE" },
+    { label: "Greece", value: "greece", countryCode: "GR" },
+    { label: "Israel", value: "israel", countryCode: "IL" },
+    { label: "Luxembourg", value: "luxembourg", countryCode: "LU" },
+    { label: "Malta", value: "malta", countryCode: "MT" },
+    { label: "Norway", value: "norway", countryCode: "NO" },
+    { label: "Poland", value: "poland", countryCode: "PL" },
+    { label: "Spain", value: "spain", countryCode: "ES" },
+    { label: "Sweden", value: "sweden", countryCode: "SE" },
+    { label: "Switzerland", value: "switzerland", countryCode: "CH" },
 ]
 
 const legalFormOptions = [

@@ -8,10 +8,10 @@
 }
 
 .title-divider{
-    margin-top: 1em !important;
-    margin-bottom: 50px !important;
-    border-width: 2px !important;
-    border-color: #829bbb !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0 !important;
+    border-width: 1px !important;
+    border-color: gray !important;
 }
 
 .title-button{

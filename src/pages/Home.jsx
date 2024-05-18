@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import {Box} from '@mui/material';
-import '../App.css';
+import { Box } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
 import { PowerSearch } from '../components/main-area/search-box/Power-search';
-import CompanyTitle from '../components/data-display/data-display-components/CompanyTitle';
-import CompanyText from '../components/data-display/data-display-components/CompanyText';
+import Introduction from '../components/main-area/text-area/text-area-components/introduction/Introduction';
+import Coverage from '../components/main-area/text-area/text-area-components/coverage/Coverage';
+import Partner from '../components/main-area/text-area/text-area-components/Partner';
 
-function CompanyPage(name,register,address,additionalInfo,financials,history,network,publications) {
-  const [toggleState, setToggleState] = useState(1);
+
+function Home() {
+
+    const [toggleState, setToggleState] = useState(1);
     
     const toggleTab = (index) => {
         setToggleState(index)
@@ -71,15 +73,45 @@ function CompanyPage(name,register,address,additionalInfo,financials,history,net
         </Box>
         <Box sx={{width:'100%',height:'35px !important',backgroundColor:'white !important'}}></Box>
         <Box className='text-area'>
-              <CompanyTitle />
-        </Box>
-              <Box sx={{width:'100%',height:'35px !important',backgroundColor:'white !important'}}></Box>
-        <Box className='text-area'>
-              <CompanyText />
+            <Introduction />
+            <Coverage />
+            <Partner />
         </Box>
 
       </Box>
     )
-}
+  }
+  
+  export default Home
 
-export default CompanyPage
+//   const [filteredCompanies,setfilteredCompanies]=useState([]); //for dropdown
+//   const [searchedCompany,setSearchedCompany]=useState({});
+//   const [loading,setLoading]=useState(true);
+//   const [input,setInput]=useState('');
+
+//   useEffect(() => {
+//   const fetchData = async () => {
+//     try {
+//       const response = await axios.get('http://localhost:3000/data?name=${filterValue}`'); 
+//       setSearchedCompany(response.data);
+//       console.log('set searchedCompany succeed!')
+//     } catch (error) {
+//       console.error('Error fetching searchedCompany:', error);
+//     }
+//   };
+//     fetchData();
+//   }, []);
+
+//   const handleSubmit=(e)=>{
+//     e.preventDefault();
+//     const fetchData = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:3000/data?name=${input}`'); 
+//         setSearchedCompany(response.data);
+//         console.log('set searchedCompany succeed!')
+//       } catch (error) {
+//         console.error('Error fetching searchedCompany:', error);
+//       }
+//     };
+//     console.log(searchedCompany);
+// }

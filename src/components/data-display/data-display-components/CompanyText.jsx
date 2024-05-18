@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box,Divider, Container , Typography} from '@mui/material';
-import '../main-area/text-area/text-area.css';
-import '../main-area/main-area.css';
+import { Box,Divider, Container} from '@mui/material';
+import '../../main-area/text-area/text-area.css';
+import '../../main-area/main-area.css';
 
 function CompanyText() {
   return (
-    <Box className="mainarea"> 
+    <Box> 
         <Box sx={{display:'flex',flexDirection:'column'}}>
             <Container className='header-container'>
                 名字
