@@ -21,6 +21,7 @@
     cursor: pointer;
     box-sizing: content-box;
     position: relative;
+    letter-spacing: 0.1rem;
 }
 
 .tabs:hover {
@@ -90,10 +91,12 @@
 .popup-content p{
     font-size: small;
     font-weight: 350;
+    letter-spacing: 0.1rem;
 }
 
 .popup-content h7{
     font-weight: 600;
+    letter-spacing: 0.1rem;
 }
 
 .popup-content span{
