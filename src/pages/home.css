@@ -150,6 +150,9 @@
     font-weight: 500;
 }
 
+.qs-content {
+    width: 100%;
+}
 
 .input-wrapper {
     background-color: white;

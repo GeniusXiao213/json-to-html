@@ -1,0 +1,26 @@
+.search-result {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    border-left: 0.1px solid #939297;
+    border-bottom: 0.1px solid #939297;
+}
+
+.search-result div{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-result-name {
+    font-weight: 450;
+}
+
+.search-result-address {
+    font-size: smaller;
+    font-weight: 450;
+    color: #939297;
+}
+
+.search-result:hover {
+   background-color: #efefef; 
+}

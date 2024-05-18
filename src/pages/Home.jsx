@@ -7,6 +7,7 @@ import { PowerSearch } from '../components/main-area/search-box/Power-search';
 import Introduction from '../components/main-area/text-area/text-area-components/introduction/Introduction';
 import Coverage from '../components/main-area/text-area/text-area-components/coverage/Coverage';
 import Partner from '../components/main-area/text-area/text-area-components/Partner';
+import QuickSearchResultsList from '../components/main-area/search-box/QuickSearchResultsList';
 
 
 function Home() {
@@ -14,8 +15,32 @@ function Home() {
     const [toggleState, setToggleState] = useState(1);
     
     const toggleTab = (index) => {
-        setToggleState(index)
-    }
+        setToggleState(index);
+    };
+
+    const [input, setInput] = useState("")
+
+    const fetchData = (value) => {
+        //Insert API link or alternative to fetch data for search
+        //Currently using a placeholder for testing
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then(json => {
+            // console.log(json);
+            const results = json.filter((user) => {
+                return value && user && user.name && user.name.toLowerCase().includes(value);
+            });
+            // console.log(results);
+            setResults(results);
+        });
+    };
+
+    const handleChange = (value) => {
+        setInput(value);
+        fetchData(value);
+    };
+
+    const [results, setResults] = useState([]);
 
     return (
       <Box className="mainarea">
@@ -53,12 +78,13 @@ function Home() {
                         <div className="content-tabs">
                             <div className={toggleState === 1 ? 'content active-content' : 'content'}>
                                 {/* SearchBar */}
-                                <div>
+                                <div className='qs-content'>
                                     <div className="input-wrapper" >
                                     <SearchIcon className="search-icon" />
                                     {/* Company or Person */}
-                                    <input placeholder="公司或个人" />
+                                    <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
                                     </div>
+                                    <QuickSearchResultsList results={results}/>
                                     <QuickSearchFilter />
                                 </div>
                             </div>
