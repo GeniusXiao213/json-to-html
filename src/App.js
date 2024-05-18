@@ -13,6 +13,7 @@ import { Box } from '@mui/material';
 
 function App() {
   return (
+    <Box>
       <Box className="App">
       <Router>
         <Header />
@@ -21,10 +22,10 @@ function App() {
             <Route exact path='/' element={<MainPage />}/>
             <Route exact path='company' element={<CompanyPage />}/>
         </Routes>
-        <Footer />
       </Router>
-
       </Box>   
+        <Footer />
+    </Box>
   );
 }
 
