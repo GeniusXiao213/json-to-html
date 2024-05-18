@@ -1,0 +1,21 @@
+.company-title-text{
+    font-family: "Josefin Sans", serif !important;
+    font-size: 1.28rem !important;
+    line-height: 1.15em !important;
+    font-weight: 500 !important;
+    color: rgba(0, 0, 0, .87) !important;
+    letter-spacing: 4px !important;
+}
+
+.title-divider{
+    margin-top: 1.5em !important;
+    margin-bottom: 0 !important;
+    border-width: 1px !important;
+    border-color: gray !important;
+}
+
+.title-button{
+    margin-right:30px !important;
+    width:110px;
+    height:35px;
+}

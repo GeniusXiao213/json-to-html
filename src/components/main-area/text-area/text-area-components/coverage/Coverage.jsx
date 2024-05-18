@@ -17,7 +17,7 @@ function Coverage() {
             <Grid item xs={5.8} sx={{marginTop:'35px'}}>
                 <Box>
                     <Grid container gap={2} sx={{marginBottom:'3.5em',justifyContent:'center'}}>
-                      <Grid item xs={5} className='coverage-block-first' sx={{backgroundColor: '#447c9c'}}>16个国家</Grid>
+                      <Grid item xs={5} className='coverage-block-first' sx={{backgroundColor: '#447c9c'}}>18个国家</Grid>
                       <Grid item xs={5} className='coverage-block-first' sx={{backgroundColor: '#829bbb'}}>5900万家企业</Grid>
                     </Grid>
                     <Grid container>
