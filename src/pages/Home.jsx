@@ -82,6 +82,7 @@ function Home() {
     )
   }
   
+
   export default Home
 
 //   const [filteredCompanies,setfilteredCompanies]=useState([]); //for dropdown
@@ -115,3 +116,5 @@ function Home() {
 //     };
 //     console.log(searchedCompany);
 // }
+
+
