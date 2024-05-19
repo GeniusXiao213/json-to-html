@@ -190,12 +190,12 @@ input:focus {
 
 .info-icon {
     color: white;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .country-filter {
     border: none;
-    width: 180px;
+    width: 150px;
     justify-self: center;
 }
 
