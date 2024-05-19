@@ -72,7 +72,7 @@
 
 @media only screen and (max-width: 450px) {
     .cards-grid{
-        visibility: hidden;
+        display: none !important;
     }
 }
 
