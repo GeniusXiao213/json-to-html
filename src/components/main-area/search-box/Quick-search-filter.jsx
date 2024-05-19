@@ -1,16 +1,21 @@
-import React from 'react';
-import { Select, MenuItem, InputLabel } from "@mui/material";
+import React, { useState, ChangeEvent } from 'react';
+import { Select, MenuItem, InputLabel, TextField } from "@mui/material";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { GB, AT, BE, CY, CZ, DK, FI, FR, DE, GR, IL, LU, MT, NO, PL, ES, SE, CH } from 'country-flag-icons/react/3x2';
 import '../../../pages/home.css';
 
 const QuickSearchFilter = () => {
+  const [country, setCountry] = useState('');
+
+  const handleChange = (value) => {
+    setCountry(value);
+  }
   return (
     <div className="quick-search-filter">
-        <div>
+        <div className='filterdiv'>
           <InfoOutlinedIcon className="info-icon" />
           {/* <InputLabel id='country-filter-label'> all countries </InputLabel> */}
-          <Select
+          {/* <Select
           variant="standard"
           disableUnderline="true"
           className="country-filter"
@@ -37,7 +42,27 @@ const QuickSearchFilter = () => {
             <MenuItem><ES className="country-flag" />Spain</MenuItem>
             <MenuItem><SE className="country-flag" />Sweden</MenuItem>
             <MenuItem><CH className="country-flag" />Switzerland</MenuItem>
-          </Select>
+          </Select> */}
+          <TextField className='country-filter' label='all countries' select value={country} onChange={handleChange}>
+            <MenuItem><GB className="country-flag" />United Kingdom</MenuItem>
+            <MenuItem><AT className="country-flag" />Austria</MenuItem>
+            <MenuItem><BE className="country-flag" />Belgium</MenuItem>
+            <MenuItem><CY className="country-flag" />Cyprus</MenuItem>
+            <MenuItem><CZ className="country-flag" />Czech Republic</MenuItem>
+            <MenuItem><DK className="country-flag" />Denmark</MenuItem>
+            <MenuItem><FI className="country-flag" />Finland</MenuItem>
+            <MenuItem><FR className="country-flag" />France</MenuItem>
+            <MenuItem><DE className="country-flag" />Germany</MenuItem>
+            <MenuItem><GR className="country-flag" />Greece</MenuItem>
+            <MenuItem><IL className="country-flag" />Israel</MenuItem>
+            <MenuItem><LU className="country-flag" />Luxembourg</MenuItem>
+            <MenuItem><MT className="country-flag" />Malta</MenuItem>
+            <MenuItem><NO className="country-flag" />Norway</MenuItem>
+            <MenuItem><PL className="country-flag" />Poland</MenuItem>
+            <MenuItem><ES className="country-flag" />Spain</MenuItem>
+            <MenuItem><SE className="country-flag" />Sweden</MenuItem>
+            <MenuItem><CH className="country-flag" />Switzerland</MenuItem>
+          </TextField>
         </div>
     </div>
   )
