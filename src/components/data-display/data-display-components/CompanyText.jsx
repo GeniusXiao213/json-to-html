@@ -2,7 +2,7 @@ import React from 'react';
 import { Box,Divider, Container} from '@mui/material';
 import '../../main-area/text-area/text-area.css';
 
-function CompanyText() {
+function CompanyText({name,register,address,corporatePurpose,additionalInfo,financials,history,network,publications}) {
   return (
     <Box> 
         <Box sx={{display:'flex',flexDirection:'column'}}>
@@ -10,7 +10,7 @@ function CompanyText() {
                 名字
             </Container>
             <Box className='content-text'>
-              
+              {name}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -20,7 +20,7 @@ function CompanyText() {
                   注册号
             </Container>
             <Box className='content-text'>
-
+                {register}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -30,7 +30,7 @@ function CompanyText() {
                   地址
             </Container>
             <Box className='content-text'>
-
+                    {address}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -40,7 +40,7 @@ function CompanyText() {
                   企业宗旨
             </Container>
             <Box className='content-text'>
-
+                {corporatePurpose}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -50,7 +50,7 @@ function CompanyText() {
                   附加信息
             </Container>
             <Box className='content-text'>
-
+                {additionalInfo}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -60,7 +60,7 @@ function CompanyText() {
                   历史
             </Container>
             <Box className='content-text'>
-
+                {history}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -70,7 +70,7 @@ function CompanyText() {
                   关系网
             </Container>
             <Box className='content-text'>
-
+                {network}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -80,7 +80,7 @@ function CompanyText() {
                   事件
             </Container>
             <Box className='content-text'>
-
+                {publications}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
