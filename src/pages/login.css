@@ -1,24 +1,60 @@
-.login {
-    display:flex;
-    flex-direction: column;
+.input-box {
+    background-color: white;
+    margin: 20px;
+    padding: 4px;
+    /* border: 0.1px solid #939297; */
+    border: 0.1px solid white;
 }
 
-    .login .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        max-width: 400px;
-    }
+.input-box:hover {
+    border: 0.1px solid #447c9c;
+}
 
-    .login .form .email-field {
-        padding: 2px;
-    }
+.button-div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
 
-    .login .form .password-field {
-        padding: 2px;
-    }
+.submit-button {
+    background-color: #447c9c;
+    color: white;
+    font-weight: bold;
+    padding: 7px;
+    width: 100px;
+    border: none;
+}
 
-    .login .form .submit-btn {
-        padding: 2px;
-        padding-top: 500px;
-    }
+.links {
+    margin: 10px 20px;
+    padding-bottom: 10px;
+}
+
+.prem-services-link {
+    display: flex;
+    flex-direction: row;
+    padding: 2px 0px;
+    font-size: 1.6ch;
+}
+
+.prem-services-link a{
+    color: #447c9c;
+    text-decoration: none;
+}
+
+
+.forgot-password-link {
+    display: flex;
+    flex-direction: row;
+    padding: 2px 0px;
+    font-size: 1.6ch;
+}
+
+.forgot-password-link a{
+    color: #447c9c;
+    text-decoration: none;
+}
+
+.right-arrow {
+    color: #447c9c;
+}
