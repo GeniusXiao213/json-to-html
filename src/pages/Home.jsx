@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
-import { PowerSearch } from '../components/main-area/search-box/Power-search';
+import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import Introduction from '../components/main-area/text-area/text-area-components/introduction/Introduction';
 import Coverage from '../components/main-area/text-area/text-area-components/coverage/Coverage';
 import Partner from '../components/main-area/text-area/text-area-components/Partner';

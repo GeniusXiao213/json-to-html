@@ -4,7 +4,7 @@ import '../App.css';
 import SearchIcon from "@mui/icons-material/Search";
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
-import { PowerSearch } from '../components/main-area/search-box/Power-search';
+import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import CompanyTitle from '../components/data-display/data-display-components/CompanyTitle';
 import CompanyText from '../components/data-display/data-display-components/CompanyText';
 

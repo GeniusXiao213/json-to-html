@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Box, Grid, Card, CardContent, CardActions, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
-import { GB, AT, BE, CY, CZ, DK, FI, FR, DE, GR, IL, LU, MT, NO, PL, ES, SE, CH } from 'country-flag-icons/react/3x2';
-import './powersearch.css';
+import PowerSearchAdd from './PowerSearchAdd';
+import './search.css';
+import './buttons.css';
 
 
 //Data
@@ -73,6 +74,7 @@ export const PowerSearch = () => {
                 <Form className='power-search-form'>
                   <CardContent justify="center">
                     <Grid item container spacing={1} justify="center">
+                     
                       <Grid item xs={12} sm={6} md={6}>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="country-label">
@@ -94,6 +96,7 @@ export const PowerSearch = () => {
                           </Select>
                         </FormControl>
                       </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
                           label="地区"
@@ -104,6 +107,7 @@ export const PowerSearch = () => {
                           component={TextField}
                         />
                       </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
                           label="范围"
@@ -114,19 +118,20 @@ export const PowerSearch = () => {
                           component={TextField}
                         />
                       </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="legal-form-label">
                             法律形式
                           </InputLabel>
                           <Select
-                            labelId="legal-form-select-label"
+                            labelId="legal-form-label"
                             id="legal-form-select"
                             label="法律形式"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.legalForm}
-                            name="legal-form">
+                            name="legalForm">
                             {legalFormOptions.map((item) => (
                               <MenuItem key={item.value} value={item.value}>
                                 {item.label}
@@ -134,7 +139,8 @@ export const PowerSearch = () => {
                             ))}
                           </Select>
                         </FormControl>
-                      </Grid> 
+                      </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="legal-status-label">
@@ -156,6 +162,7 @@ export const PowerSearch = () => {
                           </Select>
                         </FormControl>
                       </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
                           label="搜索关键字"
@@ -166,6 +173,7 @@ export const PowerSearch = () => {
                           component={TextField}
                         />
                       </Grid>
+
                       <Grid item xs={12} sm={6} md={6}>
                         <Field
                           label="行业细分"
@@ -176,11 +184,17 @@ export const PowerSearch = () => {
                           component={TextField}
                         />
                       </Grid>
+
                     </Grid>
                   </CardContent>
+
+                  <Grid className='filter-buttons'>
+                    <PowerSearchAdd />
+                  </Grid>
+
                   <Grid className='submit-form'>
                     <Button
-                      className="submit-button"
+                      className="submit-btn"
                       disabled={!dirty || !isValid}
                       variant="contained"
                       color="primary"
@@ -188,6 +202,7 @@ export const PowerSearch = () => {
                       提交搜索
                     </Button>
                   </Grid>
+
                 </Form>
               )
             }}

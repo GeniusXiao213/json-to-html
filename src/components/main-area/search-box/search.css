@@ -1,0 +1,49 @@
+.power-search-form{
+    background-color: white;
+    justify-self: center;
+}
+
+.power-search-extra {
+    justify-self: center;
+    margin: 15px;
+}
+
+
+.buttons-div {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 15px;
+}
+
+.add-section-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #53A353;
+    color: white;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.add-section-btn span {
+    font-weight: 800;
+    font-size: larger;
+    padding-top: 5px;
+}
+
+
+.event-extra {
+    margin-top: 10px;
+}
+
+.delete-icon {
+    margin: 7px 0px;
+    height: 40px;
+    width: 40px;
+    color: rgb(245, 51, 51);
+}
+
+.dash {
+    color: gray;
+    padding-top: 15px;
+}

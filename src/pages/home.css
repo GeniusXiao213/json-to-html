@@ -199,6 +199,10 @@ input:focus {
     justify-self: center;
 }
 
+.country-filter:focus {
+    border: none;
+}
+
 .country-flag {
     height: 20px;
     width: 20px;

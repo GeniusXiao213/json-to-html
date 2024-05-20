@@ -5,6 +5,7 @@ import { GB, AT, BE, CY, CZ, DK, FI, FR, DE, GR, IL, LU, MT, NO, PL, ES, SE, CH 
 import '../../../pages/home.css';
 
 const QuickSearchFilter = () => {
+  
   const [country, setCountry] = useState('');
 
   const handleChange = (value) => {
@@ -12,7 +13,7 @@ const QuickSearchFilter = () => {
   }
   return (
     <div className="quick-search-filter">
-        <div className='filterdiv'>
+        <div className='filter-div'>
           <InfoOutlinedIcon className="info-icon" />
           {/* <InputLabel id='country-filter-label'> all countries </InputLabel> */}
           {/* <Select
