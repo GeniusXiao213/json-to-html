@@ -42,11 +42,11 @@
     
 }
 
-.header-container:hover{
+/* .header-container:hover{
     height: 33px;
     width: 195px !important;
     font-size: 1.1rem;
-}
+} */
 
 .title-text{
     color:darkblue;
@@ -68,6 +68,12 @@
     display: flex;
     width: 100%;
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
+
+@media only screen and (max-width: 450px) {
+    .cards-grid{
+        display: none !important;
+    }
 }
 
 /* content-text: change font family */
