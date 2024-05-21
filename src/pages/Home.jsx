@@ -15,12 +15,17 @@ import QuickSearchResultsList from '../components/main-area/search-box/QuickSear
 function Home() {
 
     const [toggleState, setToggleState] = useState(1);
-    
+    const [input, setInput] = useState("")
+    const [results, setResults] = useState([]);
+
     const toggleTab = (index) => {
         setToggleState(index);
     };
 
-    const [input, setInput] = useState("")
+    const clearInput = () => {
+        setInput(""); // Clear the input value
+        setResults([]);
+    };
 
     const fetchData = (value) => {
         //Insert API link or alternative to fetch data for search
@@ -42,7 +47,7 @@ function Home() {
         fetchData(value);
     };
 
-    const [results, setResults] = useState([]);
+    
 
     return (
       <Box className="mainarea">
@@ -85,7 +90,7 @@ function Home() {
                                     <SearchIcon className="search-icon" />
                                     {/* Company or Person */}
                                     <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
-                                    <ClearIcon className='clear-icon'/>
+                                    <ClearIcon className='clear-icon' onClick={clearInput} />
                                     </div>
                                     <QuickSearchResultsList results={results}/>
                                     <QuickSearchFilter />
