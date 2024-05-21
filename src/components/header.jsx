@@ -7,7 +7,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 function Header() {
   return (
     <div className="header">
-      <Link to="/" className="logo">
+      <Link to="/home/intro" className="logo">
       <img src={Logo} alt='Logo' className='logo-img'/>
       </Link>
       <h1 className='app-name'>海南欧企查科技有限公司</h1>

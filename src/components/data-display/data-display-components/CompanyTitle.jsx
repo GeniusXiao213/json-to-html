@@ -10,7 +10,7 @@ function CompanyTitle({name}) {
         <Box sx={{display:'flex',padding:'1em 2em',alignItems:'center'}} >
             <ApartmentIcon sx={{paddingRight:'20px',width:'48px',height:'40px'}}/>
             <Typography className='company-title-text'>
-            {/* {name} */}
+            {name}
             {/* 海南欧企查科技有限公司 */}
             </Typography>
         </Box>

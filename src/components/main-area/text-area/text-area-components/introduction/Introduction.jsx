@@ -12,11 +12,14 @@ function Introduction() {
                 企业简介
             </Box>
             <Box className='content-text'>
-              欧企查是本科在英国伯明翰大学毕业，研究生毕业于英国曼切斯特大学电机工程专业的马兆骏先生成立的创业公司，其注册资金为1000万人民币。马兆骏先生从小生活在德国，具有良好的教育背景，于2023年毕业后回国调研中欧两地的差异后决定创立欧企查科技有限公司。
+              欧企查是本科在英国伯明翰大学毕业，研究生毕业于英国曼切斯特大学电机工程专业的马兆骏先生成立的创业公司，其注册资金为1000万人民币。马兆骏先生于2023年毕业后回国调研中欧两地的差异后决定创立欧企查科技有限公司。
             </Box>
             <Box sx={{textAlign:'end'}}>
-                <Typography variant='subtitle2' sx={{textDecoration: 'underline'}}>
+                <Typography variant='subtitle2' sx={{textDecoration: 'underline',marginBottom:'8px'}}>
                   企业注册号（组织机构代码）：MADDBYU4-9
+                </Typography>
+                <Typography variant='subtitle2' sx={{textDecoration: 'underline'}}>
+                  增值电信业务经营许可证（ICP）：琼B2-20240327
                 </Typography>
             </Box>
         </Box>
