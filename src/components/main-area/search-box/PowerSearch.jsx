@@ -3,8 +3,8 @@ import { Box, Grid, Card, CardContent, CardActions, Button, InputLabel, Select, 
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import PowerSearchAdd from './PowerSearchAdd';
+import SearchIcon from "@mui/icons-material/Search";
 import './search.css';
-import './buttons.css';
 
 
 //Data
@@ -19,24 +19,24 @@ const initialValues = {
 }
 
 const countryOptions = [
-    { label: "United Kingdom", value: "united-kingdom", countryCode: "GB" },
-    { label: "Austria", value: "austria", countryCode: "AT" },
-    { label: "Belgium", value: "belgium", countryCode: "BE" },
-    { label: "Cyprus", value: "cyprus", countryCode: "CY" },
-    { label: "Czech Republic", value: "czech-republic", countryCode: "CZ" },
-    { label: "Denmark", value: "denmark", countryCode: "DK" },
-    { label: "Finland", value: "finland", countryCode: "FI" },
-    { label: "France", value: "france", countryCode: "FR" },
-    { label: "Germany", value: "germany", countryCode: "DE" },
-    { label: "Greece", value: "greece", countryCode: "GR" },
-    { label: "Israel", value: "israel", countryCode: "IL" },
-    { label: "Luxembourg", value: "luxembourg", countryCode: "LU" },
-    { label: "Malta", value: "malta", countryCode: "MT" },
-    { label: "Norway", value: "norway", countryCode: "NO" },
-    { label: "Poland", value: "poland", countryCode: "PL" },
-    { label: "Spain", value: "spain", countryCode: "ES" },
-    { label: "Sweden", value: "sweden", countryCode: "SE" },
-    { label: "Switzerland", value: "switzerland", countryCode: "CH" },
+    { label: "英国", value: "united-kingdom", countryCode: "GB" },
+    { label: "奥地利", value: "austria", countryCode: "AT" },
+    { label: "比利时", value: "belgium", countryCode: "BE" },
+    { label: "塞浦路斯", value: "cyprus", countryCode: "CY" },
+    { label: "捷克共和国", value: "czech-republic", countryCode: "CZ" },
+    { label: "丹麦", value: "denmark", countryCode: "DK" },
+    { label: "芬兰", value: "finland", countryCode: "FI" },
+    { label: "法国", value: "france", countryCode: "FR" },
+    { label: "德国", value: "germany", countryCode: "DE" },
+    { label: "希腊", value: "greece", countryCode: "GR" },
+    { label: "以色列", value: "israel", countryCode: "IL" },
+    { label: "卢森堡", value: "luxembourg", countryCode: "LU" },
+    { label: "马耳他", value: "malta", countryCode: "MT" },
+    { label: "挪威", value: "norway", countryCode: "NO" },
+    { label: "波兰", value: "poland", countryCode: "PL" },
+    { label: "西班牙", value: "spain", countryCode: "ES" },
+    { label: "瑞典", value: "sweden", countryCode: "SE" },
+    { label: "瑞士", value: "switzerland", countryCode: "CH" },
 ]
 
 const legalFormOptions = [
@@ -193,14 +193,18 @@ export const PowerSearch = () => {
                   </Grid>
 
                   <Grid className='submit-form'>
-                    <Button
+                    <button
                       className="submit-btn"
                       disabled={!dirty || !isValid}
                       variant="contained"
                       color="primary"
                       type="Submit">
-                      提交搜索
-                    </Button>
+                        <Box sx={{display:'flex',alignItems:'center'}}>
+
+                        <SearchIcon className='search-icon' />
+                        <h7 className='submit-btn-text'>提交搜索</h7>
+                        </Box>
+                    </button>
                   </Grid>
 
                 </Form>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from '@mui/icons-material/Clear';
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
 import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
@@ -8,6 +9,7 @@ import Introduction from '../components/main-area/text-area/text-area-components
 import Coverage from '../components/main-area/text-area/text-area-components/coverage/Coverage';
 import Partner from '../components/main-area/text-area/text-area-components/Partner';
 import QuickSearchResultsList from '../components/main-area/search-box/QuickSearchResultsList';
+
 
 
 function Home() {
@@ -83,6 +85,7 @@ function Home() {
                                     <SearchIcon className="search-icon" />
                                     {/* Company or Person */}
                                     <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
+                                    <ClearIcon className='clear-icon'/>
                                     </div>
                                     <QuickSearchResultsList results={results}/>
                                     <QuickSearchFilter />

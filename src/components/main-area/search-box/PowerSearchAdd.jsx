@@ -8,14 +8,14 @@ import './search.css';
 
 
 //Data
-const initialValues = {
-    performanceIndicator: "",
-    min: "",
-    max: "",
-    event: "",
-    startDate: "",
-    endDate: "",
-}
+// const initialValues = {
+//     performanceIndicator: "",
+//     min: "",
+//     max: "",
+//     event: "",
+//     startDate: "",
+//     endDate: "",
+// }
 
 const performanceIndicatorOptions = [
     { label: "每位员工的平均工资", value: "average-salaries-per-employee" },
@@ -47,46 +47,65 @@ const performanceIndicatorOptions = [
 ]
 
 const eventOptions = [
-    { label: "Address change", value: "address-change" },
-    { label: "Annual report", value: "annual-report" },
-    { label: "Capital change", value: "capital-change" },
-    { label: "Change of control", value: "change-of-control" },
-    { label: "Company statute", value: "company-statute" },
-    { label: "Continuation", value: "continuation" },
-    { label: "Insolvency filing", value: "insolvency-filing" },
-    { label: "Insolvency proceedings update", value: "insolvency-froceedings-update" },
-    { label: "Legal form change", value: "legal-form-change" },
-    { label: "LEI Allocation", value: "lei-allocation" },
-    { label: "Liquidation", value: "liquidation" },
-    { label: "Management change", value: "management-change" },
-    { label: "Merger/Acquisition", value: "merger-acquisition" },
-    { label: "Name change", value: "name-change" },
-    { label: "Patent", value: "patent" },
-    { label: "Public funding", value: "public-funding" },
-    { label: "Register change", value: "register-change" },
-    { label: "Registration", value: "registration" },
-    { label: "Restoration", value: "restoration" },
-    { label: "Shareholder agreement", value: "shareholder-agreement" },
-    { label: "Termination", value: "termination" },
-    { label: "Trademark", value: "trademark" },
+    { label: "地址变更", value: "address-change" },
+    { label: "年度报告", value: "annual-report" },
+    { label: "资金变更", value: "capital-change" },
+    { label: "控制权变更", value: "change-of-control" },
+    { label: "公司章程", value: "company-statute" },
+    { label: "持续经营", value: "continuation" },
+    { label: "破产申请", value: "insolvency-filing" },
+    { label: "破产程序更新", value: "insolvency-froceedings-update" },
+    { label: "法律形式变更", value: "legal-form-change" },
+    { label: "LEI分配", value: "lei-allocation" },
+    { label: "清算", value: "liquidation" },
+    { label: "管理变革", value: "management-change" },
+    { label: "合并/收购", value: "merger-acquisition" },
+    { label: "名称改变", value: "name-change" },
+    { label: "专利", value: "patent" },
+    { label: "公共资助", value: "public-funding" },
+    { label: "登记变更", value: "register-change" },
+    { label: "登记", value: "registration" },
+    { label: "恢复", value: "restoration" },
+    { label: "股东协议", value: "shareholder-agreement" },
+    { label: "终止", value: "termination" },
+    { label: "商标", value: "trademark" },
 ]
 
 const PowerSearchAdd = () => {
 
+    const [performanceIndicators, setPerformanceIndicators] = useState([]);
+    const [events, setEvents] = useState([]);
+
+    const handleAddPerf = () => {
+        setPerformanceIndicators([...performanceIndicators, { performanceIndicator:"", min:"", max:"" }]);
+    };
+
+    const handleRemovePerf = (index) => {
+        const newIndicators = performanceIndicators.filter((_, i) => i !== index);
+        setPerformanceIndicators(newIndicators);
+    };
+
+    const handleAddEvent = () => {
+        setEvents([...events, { event:"", startDate:"", endDate:"" }]);
+    };
+
+    const handleRemoveEvent = (index) => {
+        const newEvents = events.filter((_, i) => i !== index);
+        setEvents(newEvents);
+    };
+
     const onSubmit = (values) => {
         console.log(values)
     }
-
-    const [piForm, setPiForm] = useState([])
     
   return (
     <div>
         <div className='buttons-div'>
             <div className="performance-indicator-btn">
-                <button className='add-section-btn'><span>+ </span>Performance indicator</button>
+                <button className='add-section-btn' onClick={handleAddPerf}><span>+ </span>Performance indicator</button>
             </div>
             <div className="event-filter-btn">
-                <button className='add-section-btn'><span>+ </span>Event filter</button>
+                <button className='add-section-btn' onClick={handleAddEvent}><span>+ </span>Event filter</button>
             </div>
         </div>
         <div className="performance-indicator-fields">
@@ -94,85 +113,91 @@ const PowerSearchAdd = () => {
                 <Grid item md={12} >
                     <Box>
                         <Formik
-                        initialValues={initialValues}
+                        initialValues={{
+                            performanceIndicators: performanceIndicators,
+                            events: events,
+                        }}
+                        enableReinitialize
                         onSubmit={onSubmit}>
-                            {({ dirty, isValid, values, handleChange, handleBlur }) => {
+                            {({ values, handleChange, handleBlur }) => {
                                 return (
                                     <Form className='power-search-extra'>
+                                        {performanceIndicators.map((perf, index) => (
+                                            <div className="perf-indicator-extra" key={index}>
+                                                <Grid item container spacing={1} justify="center">
+                                                
+                                                <Grid item xs={12} sm={12} md={12}>
+                                                <FormControl fullWidth variant="outlined">
+                                                    <InputLabel id={`performance-indicator-label-${index}`}>
+                                                        Performance indicator
+                                                    </InputLabel>
+                                                    <Select
+                                                        labelId={`performance-indicator-label-${index}`}
+                                                        id={`performance-indicator-select-${index}`}
+                                                        label="Performance indicator"
+                                                        onChange={handleChange}
+                                                        onBlur={handleBlur}
+                                                        value={values.performanceIndicator}
+                                                        name={`performanceIndicators[${index}].performanceIndicator`}>
+                                                        {performanceIndicatorOptions.map((item) => (
+                                                        <MenuItem key={item.value} value={item.value}>
+                                                            {item.label}
+                                                        </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                    </FormControl>
+                                                </Grid>
+                                                
+                                                
+                                                <Grid item xs={4.5} sm={4.5} md={4.5}>
+                                                    <Field
+                                                    label="min"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    name={`performanceIndicators[${index}].min`}
+                                                    // value={values.min}
+                                                    component={TextField}
+                                                    />
+                                                </Grid>
 
-                                        <div className="perf-indicator-extra">
-                                            <Grid item container spacing={1} justify="center">
-                                            
-                                            <Grid item xs={12} sm={12} md={12}>
-                                            <FormControl fullWidth variant="outlined">
-                                                <InputLabel id="performance-indicator-label">
-                                                    Performance indicator
-                                                </InputLabel>
-                                                <Select
-                                                    labelId="performance-indicator-label"
-                                                    id="performance-indicator-select"
-                                                    label="Performance indicator"
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    value={values.performanceIndicator}
-                                                    name="performanceIndicator">
-                                                    {performanceIndicatorOptions.map((item) => (
-                                                    <MenuItem key={item.value} value={item.value}>
-                                                        {item.label}
-                                                    </MenuItem>
-                                                    ))}
-                                                </Select>
-                                                </FormControl>
-                                            </Grid>
-                                            
-                                            
-                                            <Grid item xs={4.5} sm={4.5} md={4.5}>
-                                                <Field
-                                                label="min"
-                                                variant="outlined"
-                                                fullWidth
-                                                name="min"
-                                                value={values.min}
-                                                component={TextField}
-                                                />
-                                            </Grid>
+                                                <Grid item xs={1} sm={1} md={1}>
+                                                    <RemoveOutlinedIcon className='dash'/>
+                                                </Grid>
 
-                                            <Grid item xs={1} sm={1} md={1}>
-                                                <RemoveOutlinedIcon className='dash'/>
-                                            </Grid>
+                                                <Grid item xs={4.5} sm={4.5} md={4.5}>
+                                                    <Field
+                                                    label="max"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    name={`performanceIndicators[${index}].max`}
+                                                    // value={values.max}
+                                                    component={TextField}
+                                                    />
+                                                </Grid>
+                                                <Grid item xs={2} sm={2} md={2}>
+                                                    <MdiDeleteCircle className="delete-icon" onClick={() => handleRemovePerf(index)} />
+                                                </Grid>    
+                                                </Grid>
+                                            </div>
+                                        ))}
 
-                                            <Grid item xs={4.5} sm={4.5} md={4.5}>
-                                                <Field
-                                                label="max"
-                                                variant="outlined"
-                                                fullWidth
-                                                name="max"
-                                                value={values.max}
-                                                component={TextField}
-                                                />
-                                            </Grid>
-                                            <Grid item xs={2} sm={2} md={2}>
-                                                <MdiDeleteCircle className="delete-icon" />
-                                            </Grid>    
-                                            </Grid>
-                                        </div>
-
-                                        <div className="event-extra">
+                                        {events.map((event, index) => (
+                                            <div className="event-extra" key={index}>
                                             <Grid item container spacing={1} justify="center">
                                                 
                                                 <Grid item xs={12} sm={12} md={12}>
                                                 <FormControl fullWidth variant="outlined">
-                                                    <InputLabel id="event-label">
+                                                    <InputLabel id={`event-label-${index}`}>
                                                         Event
                                                     </InputLabel>
                                                     <Select
-                                                        labelId="event-label"
-                                                        id="event-select"
+                                                        labelId={`event-label-${index}`}
+                                                        id={`event-select-${index}`}
                                                         label="Event"
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.event}
-                                                        name="event">
+                                                        name={`events[${index}].event`}>
                                                         {eventOptions.map((item) => (
                                                         <MenuItem key={item.value} value={item.value}>
                                                             {item.label}
@@ -188,8 +213,8 @@ const PowerSearchAdd = () => {
                                                     label="Start Date"
                                                     variant="outlined"
                                                     fullWidth
-                                                    name="startDate"
-                                                    value={values.startDate}
+                                                    name={`events[${index}].startDate`}
+                                                    //value={values.startDate}
                                                     component={TextField}
                                                     />
                                                 </Grid>
@@ -203,22 +228,21 @@ const PowerSearchAdd = () => {
                                                     label="End Date"
                                                     variant="outlined"
                                                     fullWidth
-                                                    name="endDate"
-                                                    value={values.endDate}
+                                                    name={`events[${index}].endDate`}
+                                                    //value={values.endDate}
                                                     component={TextField}
                                                     />
                                                 </Grid>
 
                                                 <Grid item xs={2} sm={2} md={2}>
-                                                <MdiDeleteCircle className="delete-icon" />
+                                                    <MdiDeleteCircle className="delete-icon" onClick={() => handleRemoveEvent(index)} />
                                                 </Grid>  
                                                 </Grid>
-                                        </div>
-                                        
+                                            </div>
+                                        ))}
                                     </Form>
                                 )
                             }}
-
                         </Formik>
                     </Box>
                 </Grid>

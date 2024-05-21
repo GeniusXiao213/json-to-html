@@ -31,6 +31,9 @@
     padding-top: 5px;
 }
 
+.perf-indicator-extra{
+    margin-top: 10px;
+}
 
 .event-extra {
     margin-top: 10px;
@@ -46,4 +49,22 @@
 .dash {
     color: gray;
     padding-top: 15px;
+}
+
+.submit-form {
+    padding: 5px;
+    align-items: center;
+}
+
+.submit-btn {
+    margin: 15px;
+    background-color: #455d89;
+    color: white;
+    padding: 7px 14px;
+    border: none;
+    align-items: center;
+}
+
+.submit-btn-text {
+    padding: 0px 0px 0px 9px;
 }

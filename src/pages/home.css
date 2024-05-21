@@ -178,13 +178,18 @@ input:focus {
 
 .search-icon {
     align-self: center;
+    cursor: pointer;
+}
+
+.clear-icon {
+    align-self: center;
+    cursor: pointer;
 }
 
 .quick-search-filter {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 13px;
-    margin-right: 5px;
     justify-items: center;
 }
 
