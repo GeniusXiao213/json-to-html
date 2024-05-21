@@ -1,25 +1,30 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Grid } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from '@mui/icons-material/Clear';
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
-import { PowerSearch } from '../components/main-area/search-box/Power-search';
+import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import Introduction from '../components/main-area/text-area/text-area-components/introduction/Introduction';
 import Coverage from '../components/main-area/text-area/text-area-components/coverage/Coverage';
 import Partner from '../components/main-area/text-area/text-area-components/Partner';
 import CompanyTitle from '../components/data-display/data-display-components/CompanyTitle';
-import CompanyText from '../components/data-display/data-display-components/CompanyText';
 import axios from 'axios';
 import './searchRelate.css';
+
 
 function Home() {
 
     const [toggleState, setToggleState] = useState(1);
-    
+
     const toggleTab = (index) => {
         setToggleState(index);
     };
 
+    const clearInput = () => {
+        setInput(""); // Clear the input value
+        setResults([]);
+    };
     const [input, setInput] = useState("");
     const [searchedCompany,setSearchedCompany]=useState({});
     const [results, setResults] = useState([]);
@@ -65,8 +70,6 @@ function Home() {
         // console.log('result:'+results)
     }
 
-
-
     return (
         <Box className="mainarea">
         <Box className='search-box'
@@ -108,6 +111,7 @@ function Home() {
                                     <SearchIcon className="search-icon" />
                                     {/* Company or Person */}
                                     <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
+                                    <ClearIcon className='clear-icon' onClick={clearInput} />
                                     </div>
                                     <Grid container className='results-dropdown'>
                                         {/* <Grid item xs={2} className='results-heading'>
