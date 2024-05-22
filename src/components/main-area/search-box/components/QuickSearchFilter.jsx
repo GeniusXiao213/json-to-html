@@ -5,7 +5,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { SvgIcon } from '@mui/material';
 import HtmlTooltip from './HtmlTooltip';
 import { GB, AT, BE, CY, CZ, DK, FI, FR, DE, GR, IL, LU, MT, NO, PL, ES, SE, CH } from 'country-flag-icons/react/3x2';
-import '../../../pages/home.css';
+import '../../../../pages/home.css';
 
 const QuickSearchFilter = () => {
   

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Grid, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
 import { Form, Formik, Field } from 'formik';
 import { TextField } from "formik-material-ui";
-import { MdiDeleteCircle } from './deleteCircle';
+import { MdiDeleteCircle } from './components/deleteCircle';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import './search.css';
 
