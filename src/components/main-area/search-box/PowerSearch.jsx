@@ -73,8 +73,7 @@ export const PowerSearch = () => {
               return (
                 <Form className='power-search-form'>
                   <CardContent justify="center">
-                    <Grid item container spacing={1} justify="center">
-                     
+                    <Grid item container spacing={2} justify="center">
                       <Grid item xs={12} sm={6} md={6}>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="country-label">

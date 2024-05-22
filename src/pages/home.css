@@ -196,11 +196,17 @@ input:focus {
 .info-icon {
     color: white;
     margin-top: 15px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.info-icon:hover{
+    color: cadetblue;
 }
 
 .country-filter {
     border: none;
-    width: 150px;
+    width: 130px;
     justify-self: center;
 }
 
@@ -208,8 +214,14 @@ input:focus {
     border: none;
 }
 
+.menu-items {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
 .country-flag {
     height: 20px;
     width: 20px;
     margin-right: 5px;
 }
+
