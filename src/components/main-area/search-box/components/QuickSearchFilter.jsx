@@ -71,8 +71,11 @@ const QuickSearchFilter = () => {
                 border: 'none',
               },
               '& .MuiInputLabel-root': {
-                color: 'white', // Adjust label color if needed
-              }
+                color: 'white',
+              },
+              '& .MuiInputLabel-root:Focus': {
+                color: 'white',
+              },
             }}>
               <MenuItem value="united-kingdom"><GB className="country-flag" />英国</MenuItem>
               <MenuItem value="austria"><AT className="country-flag" />奥地利</MenuItem>
