@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback,Routes ,Route, createContext } 
 import { Box, Grid } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from '@mui/icons-material/Clear';
-import Tips from '../components/main-area/search-box/Tips';
-import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
+import Tips from '../components/main-area/search-box/components/Tips';
+import QuickSearchFilter from '../components/main-area/search-box/components/QuickSearchFilter';
 import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import axios from 'axios';
 import './searchRelate.css';

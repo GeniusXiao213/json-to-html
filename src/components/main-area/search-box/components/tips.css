@@ -1,0 +1,21 @@
+.right-menu{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+}
+
+.tips-icon {
+    color: white;
+    align-self: center;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.tips-icon:hover {
+    color: cadetblue;
+}
+
+
+.tooltip-span{
+    color: #447c9c;
+}
