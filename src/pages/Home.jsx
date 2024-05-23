@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback,Routes ,Route } from 'react';
+import React, { useState, useEffect, useCallback,Routes ,Route, createContext } from 'react';
 import { Box, Grid } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import Tips from '../components/main-area/search-box/Tips';
@@ -8,27 +8,30 @@ import axios from 'axios';
 import './searchRelate.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-function Home() {
+export const CompanyContext = createContext(null);
 
+function Home() {
     const [toggleState, setToggleState] = useState(1);
     
     const toggleTab = (index) => {
         setToggleState(index);
     };
 
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState(""); //user input 
+    const [storeValue,setStoreValue] =useState(""); //fetch data from api based on change of this value
     const [isCompanyClicked,setIsCompanyClicked]=useState(false);
+    const [clickedCompany,setClickedCompany] =useState({});
     const [suggestResults, setSuggestResults] = useState([]);  //universal filtering
     const [loading,setLoading]=useState(true);
 
-    const [name,setName]=useState('');
-    const [register,setRegister]=useState('')
-    const [address,setAddress]=useState('')
-    const [corporatePurpose,setCorporatePurpose]=useState('')
-    const [additionalInfo,setAdditionalInfo]=useState('')
-    const [history,setHistory]=useState('')
-    const [network,setNetwork]=useState('')
-    const [publications,setPublications]=useState('')
+    // const [name,setName]=useState('');
+    // const [register,setRegister]=useState('')
+    // const [address,setAddress]=useState('')
+    // const [corporatePurpose,setCorporatePurpose]=useState('')
+    // const [additionalInfo,setAdditionalInfo]=useState('')
+    // const [history,setHistory]=useState('')
+    // const [network,setNetwork]=useState('')
+    // const [publications,setPublications]=useState('')
     // const [company,setCompany]=useState({});
 
     const navigate= useNavigate();
@@ -42,19 +45,6 @@ function Home() {
         }
     }, [isCompanyClicked]);
 
-    // const fetchData = async (value) => {
-    //     try {
-    //       const response = await axios.get(`http://localhost:5000/data?name=${value}`); 
-    //       //const response = await axios.get(`https://euro-search-server-69ddc1dc154d.herokuapp.com/data?name=${value}`); 
-    //       const limitedResults = Array.isArray(response.data) ? response.data.slice(0, 8) : [];
-    //         setSuggestResults(limitedResults);
-    //         // console.log('Set result succeeded!', limitedResults);
-    //     } catch (error) {
-    //       console.error('Error fetching searchedCompany:', error);
-    //     }
-    //   };
-    // //   //issue: return filter value one change behind input
-
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -64,36 +54,37 @@ function Home() {
             //     console.log(json);
             //     setSuggestResults(json);
             // });
-            const response = await axios.get('/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=4Q2Z-GA4E'); 
-            console.log(response.data)
-            setSuggestResults(response.data);
-    //         console.log('set searchedCompany succeed!')
-          console.log('set searchedCompany succeed!');
+            ///_api/search/v1/universal?query=ab&api_key=4Q2Z-GA4E
+            const response = await axios.get(`/_api/search/v1/universal?query=${input}&api_key=4Q2Z-GA4E`); 
+            setSuggestResults(response.data.results);
         } catch (error) {
           console.error('Error fetching searchedCompany:', error);
         }
       };
         fetchData();
-      }, [input]);
+      }, [storeValue]);
 
     const handleChange = (value) => {
         setInput(value);
-        setSuggestResults([]); //clear history suggestResults
+        setStoreValue(value);
+        console.log('input:'+input)
+        //setSuggestResults([]); //clear history suggestResults
         //fetchData(value);
     };
 
     const handleCompanyClick=(result) =>{
-        // console.log(result);
-        // console.log(result.address.city)
-        result.name.name && setName(result.name.name);
-        result.address.city && setName(result.address.city);
+        console.log(result.company)
+        //result.name.name && setName(result.name.name);
+        //result.address.city && setName(result.address.city);
         //result.name.name && setName(result.name.name);
         //result.name.name && setName(result.name.name);
         //result.name.name && setName(result.name.name);
         //result.name.name && setName(result.name.name);
         //console.log(searchedCompany.address.city);
-        setInput(result.name.name);
+        setInput(result.company.name.name+', '+result.company.address.formattedValue);
         setIsCompanyClicked(true);
+        setClickedCompany(result.company)
+        console.log(clickedCompany)
         setSuggestResults([]);
     }
 
@@ -148,13 +139,16 @@ function Home() {
                                         <Grid item xs={12}>
                                             <div className='suggestResults-list'>
                                                 {
+                                                    //if(suggestResults && suggestResults.name){}
                                                     suggestResults.map((result, index) => {
-                                                        return (
-                                                            <div className='search-result' onClick={() => handleCompanyClick(result)} key={index}>
-                                                                <div className='search-result-name'>{result.name.name}</div>
-                                                                <div className='search-result-address'>Insert address</div>
-                                                            </div>
+                                                        if (result.company && result.company.name && result.company.address) {
+                                                          return (
+                                                              <div className='search-result' onClick={() => handleCompanyClick(result)} key={index}>
+                                                                  <div className='search-result-name'>{result.company.name.name}</div>
+                                                                  <div className='search-result-address'>{result.company.address.formattedValue}</div>
+                                                              </div>
                                                           );
+                                                        }
                                                     })
                                                 }
                                             </div>
@@ -172,7 +166,9 @@ function Home() {
                 </Box>
             </Box>
         </Box>
-        <Outlet />                          
+        <CompanyContext.Provider value={clickedCompany}>
+            <Outlet />
+        </CompanyContext.Provider>                          
       </Box>
     )
   }

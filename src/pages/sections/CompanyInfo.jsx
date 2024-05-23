@@ -8,13 +8,11 @@ function CompanyInfo() {
     <>
         <Box sx={{width:'100%',height:'35px !important',backgroundColor:'white !important'}}></Box>
         <Box className='text-area'>
-            {/* <CompanyTitle name={searchedCompany}/> */}
-            {/* <CompanyTitle name={company.name.name}/> */}
             <CompanyTitle />
         </Box>
             <Box sx={{width:'100%',height:'35px !important',backgroundColor:'white !important'}}></Box>
         <Box className='text-area'>
-            {/* <CompanyText name={searchedCompany} /> */}
+            <CompanyText />
         </Box>
     </>
   )

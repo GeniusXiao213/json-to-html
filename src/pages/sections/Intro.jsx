@@ -4,7 +4,7 @@ import Coverage from '../../components/main-area/text-area/text-area-components/
 import Partner from '../../components/main-area/text-area/text-area-components/Partner';
 import { Box } from '@mui/material';
 
-function Intro() {
+function Intro({company}) {
   return (
     <>
       <Box sx={{width:'100%',height:'35px !important',backgroundColor:'white !important'}}></Box>
