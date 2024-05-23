@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback,Routes ,Route, createContext } from 'react';
 import { Box, Grid } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from '@mui/icons-material/Clear';
 import Tips from '../components/main-area/search-box/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/Quick-search-filter';
 import { PowerSearch } from '../components/main-area/search-box/Power-search';
@@ -8,11 +9,12 @@ import axios from 'axios';
 import './searchRelate.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 
+
 export const CompanyContext = createContext(null);
 
 function Home() {
     const [toggleState, setToggleState] = useState(1);
-    
+
     const toggleTab = (index) => {
         setToggleState(index);
     };
@@ -22,6 +24,11 @@ function Home() {
     const [isCompanyClicked,setIsCompanyClicked]=useState(false);
     const [clickedCompany,setClickedCompany] =useState({});
     const [suggestResults, setSuggestResults] = useState([]);  //universal filtering
+
+    const clearInput = () => {
+        setInput(""); // Clear the input value
+        setResults([]);
+    };
     const [loading,setLoading]=useState(true);
 
     // const [name,setName]=useState('');
@@ -88,8 +95,6 @@ function Home() {
         setSuggestResults([]);
     }
 
-
-
     return (
         <Box className="mainarea">
         <Box className='search-box'
@@ -131,6 +136,7 @@ function Home() {
                                     <SearchIcon className="search-icon" />
                                     {/* Company or Person */}
                                     <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
+                                    <ClearIcon className='clear-icon' onClick={clearInput} />
                                     </div>
                                     <Grid container className='suggestResults-dropdown'>
                                         {/* <Grid item xs={2} className='suggestResults-heading'>
