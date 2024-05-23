@@ -14,7 +14,7 @@ function CompanyTitle() {
             <ApartmentIcon sx={{paddingRight:'20px',width:'48px',height:'40px'}}/>
             <Typography className='company-title-text'>
             {/* 海南欧企查科技有限公司 */}
-            {clickedCompany.name.name && clickedCompany.name.name}
+            {clickedCompany.name && clickedCompany.name.name}
             </Typography>
         </Box>
         <Box sx={{display:'flex',padding:'0 2em',alignItems:'center'}}>
