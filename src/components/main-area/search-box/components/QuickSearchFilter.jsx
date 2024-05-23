@@ -27,9 +27,9 @@ const QuickSearchFilter = () => {
           <HtmlTooltip
             title={
               <React.Fragment>
-                <b>Country filter</b>
+                <b>国家过滤器</b>
                 <br />
-                {"Restrict the search to companies and persons in specific countries by selecting the desired countries here."}
+                {"通过在此处选择所需的国家/地区，将搜索限制为特定国家/地区的公司和个人。"}
               </React.Fragment>
             }
             arrow
