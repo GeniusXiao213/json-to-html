@@ -79,7 +79,7 @@ export const PowerSearch = () => {
                       <Grid item xs={12} sm={6} md={6}>
                         <div className="field-label">
                           <span>国家</span>
-                          <Tooltip
+                          {/* <Tooltip
                             className="tooltip"
                             title={
                               <React.Fragment>
@@ -90,7 +90,8 @@ export const PowerSearch = () => {
                             placement='right'
                           >
                             <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
-                          </Tooltip>
+                          </Tooltip> */}
+                          <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
                         </div>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="country-label">
@@ -119,6 +120,7 @@ export const PowerSearch = () => {
                         </div>
                         <Field
                           label="城市/地址/空白"
+                          type="Address"
                           variant="outlined"
                           fullWidth
                           name="place"
@@ -236,7 +238,7 @@ export const PowerSearch = () => {
                             className="tooltip"
                             title={
                               <React.Fragment>
-                                {"Restrict the search to companies from one or more industry segments by selecting from the drop down list."}
+                                {"通过从下拉列表中选择，限制搜索到一个或多个行业的公司。"}
                               </React.Fragment>
                             }
                             arrow
