@@ -118,38 +118,6 @@
     color: white;
 }
 
-.popup-content {
-    background: rgb(255, 255, 255);
-    width: 50%;
-    height: fit-content;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  .popup-arrow {
-    color: rgb(255, 255, 255);
-  }
-  [role='tooltip'].popup-content {
-    width: 200px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-  }
-  
-
-.popup-content p{
-    font-size: small;
-    font-weight: 350;
-    letter-spacing: 0.1rem;
-}
-
-.popup-content h7{
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-}
-
-.popup-content span{
-    color: #447c9c;
-    font-weight: 500;
-}
-
 .qs-content {
     width: 100%;
 }
@@ -196,16 +164,27 @@ input:focus {
 .info-icon {
     color: white;
     margin-top: 15px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.info-icon:hover{
+    color: cadetblue;
 }
 
 .country-filter {
     border: none;
-    width: 150px;
+    width: 160px;
     justify-self: center;
 }
 
 .country-filter:focus {
     border: none;
+}
+
+.menu-items {
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .country-flag {

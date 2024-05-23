@@ -68,3 +68,25 @@
 .submit-btn-text {
     padding: 0px 0px 0px 9px;
 }
+
+.field-label {
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    padding-bottom: 6px;
+}
+
+.field-label span {
+    padding-right: 2px;
+    font-size: small;
+    font-weight: 550;
+}
+
+.field-label-info {
+    padding-top: 2px;
+    color: gray;
+}
+
+.tooltip-arrow {
+    border: 1px solid gray;
+}

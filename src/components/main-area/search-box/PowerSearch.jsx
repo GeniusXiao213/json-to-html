@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Box, Grid, Card, CardContent, CardActions, Button, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
+import React from 'react';
+import { Box, Grid, CardContent, InputLabel, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PowerSearchAdd from './PowerSearchAdd';
 import SearchIcon from "@mui/icons-material/Search";
+//import HtmlTooltip from './components/HtmlTooltip';
 import './search.css';
 
 
@@ -74,16 +76,31 @@ export const PowerSearch = () => {
                 <Form className='power-search-form'>
                   <CardContent justify="center">
                     <Grid item container spacing={1} justify="center">
-                     
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>国家</span>
+                          {/* <Tooltip
+                            className="tooltip"
+                            title={
+                              <React.Fragment>
+                                {"The fields Country, Place and Radius are explained in the help center article about Geographic Filters."}
+                              </React.Fragment>
+                            }
+                            arrow
+                            placement='right'
+                          >
+                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                          </Tooltip> */}
+                          <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                        </div>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="country-label">
-                            国家
+                            所有国家
                           </InputLabel>
                           <Select
                             labelId="country-select-label"
                             id="country-select-label"
-                            label="国家"
+                            label="所有国家"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.country}
@@ -98,8 +115,12 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>地区</span>
+                        </div>
                         <Field
-                          label="地区"
+                          label="城市/地址/空白"
+                          type="Address"
                           variant="outlined"
                           fullWidth
                           name="place"
@@ -109,8 +130,11 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>范围</span>
+                        </div>
                         <Field
-                          label="范围"
+                          label="距离"
                           variant="outlined"
                           fullWidth
                           name="radius"
@@ -120,14 +144,17 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>法律形式</span>
+                        </div>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="legal-form-label">
-                            法律形式
+                            所有法律形式
                           </InputLabel>
                           <Select
                             labelId="legal-form-label"
                             id="legal-form-select"
-                            label="法律形式"
+                            label="所有法律形式"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.legalForm}
@@ -142,6 +169,21 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>法律地位</span>
+                          <Tooltip
+                            className="tooltip"
+                            title={
+                              <React.Fragment>
+                                {"请参阅帮助中心关于公司法律地位的文章，了解有效、清算和终止这三个术语的解释。"}
+                              </React.Fragment>
+                            }
+                            arrow
+                            placement='right'
+                          >
+                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                          </Tooltip>
+                        </div>
                         <FormControl fullWidth variant="outlined">
                           <InputLabel id="legal-status-label">
                             法律地位
@@ -164,8 +206,23 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>搜索关键字</span>
+                          <Tooltip
+                            className="tooltip"
+                            title={
+                              <React.Fragment>
+                                {"搜索关键字限制搜索在公司名称、公司目的、行业部门或商标中包含一个或多个关键字的公司。"}
+                              </React.Fragment>
+                            }
+                            arrow
+                            placement='right'
+                          >
+                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                          </Tooltip>
+                        </div>
                         <Field
-                          label="搜索关键字"
+                          label="关键字"
                           variant="outlined"
                           fullWidth
                           name="keywords"
@@ -175,6 +232,21 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
+                        <div className="field-label">
+                          <span>行业细分</span>
+                          <Tooltip
+                            className="tooltip"
+                            title={
+                              <React.Fragment>
+                                {"通过从下拉列表中选择，限制搜索到一个或多个行业的公司。"}
+                              </React.Fragment>
+                            }
+                            arrow
+                            placement='right'
+                          >
+                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                          </Tooltip>
+                        </div>
                         <Field
                           label="行业细分"
                           variant="outlined"

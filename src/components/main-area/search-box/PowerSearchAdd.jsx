@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid, InputLabel, Select, MenuItem, FormControl } from '@mui/material';
+import { Box, Grid, InputLabel, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
 import { Form, Formik, Field } from 'formik';
 import { TextField } from "formik-material-ui";
-import { MdiDeleteCircle } from './deleteCircle';
+import { MdiDeleteCircle } from './components/deleteCircle';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './search.css';
 
 
@@ -127,14 +128,29 @@ const PowerSearchAdd = () => {
                                                 <Grid item container spacing={1} justify="center">
                                                 
                                                 <Grid item xs={12} sm={12} md={12}>
+                                                <div className="field-label">
+                                                    <span>绩效指标</span>
+                                                    <Tooltip
+                                                        className="tooltip"
+                                                        title={
+                                                        <React.Fragment>
+                                                            {"这些过滤器的详细信息可以在我们的帮助中心关于Performance Indicator过滤的文章中找到。"}
+                                                        </React.Fragment>
+                                                        }
+                                                        arrow
+                                                        placement='right'
+                                                    >
+                                                        <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                                                    </Tooltip>
+                                                </div>
                                                 <FormControl fullWidth variant="outlined">
                                                     <InputLabel id={`performance-indicator-label-${index}`}>
-                                                        Performance indicator
+                                                        绩效指标
                                                     </InputLabel>
                                                     <Select
                                                         labelId={`performance-indicator-label-${index}`}
                                                         id={`performance-indicator-select-${index}`}
-                                                        label="Performance indicator"
+                                                        label="绩效指标"
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.performanceIndicator}
@@ -151,7 +167,7 @@ const PowerSearchAdd = () => {
                                                 
                                                 <Grid item xs={4.5} sm={4.5} md={4.5}>
                                                     <Field
-                                                    label="min"
+                                                    label="最小"
                                                     variant="outlined"
                                                     fullWidth
                                                     name={`performanceIndicators[${index}].min`}
@@ -166,7 +182,7 @@ const PowerSearchAdd = () => {
 
                                                 <Grid item xs={4.5} sm={4.5} md={4.5}>
                                                     <Field
-                                                    label="max"
+                                                    label="最大"
                                                     variant="outlined"
                                                     fullWidth
                                                     name={`performanceIndicators[${index}].max`}

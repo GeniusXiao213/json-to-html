@@ -1,6 +1,6 @@
 import React from 'react';
 import './quickSearchResultsList.css';
-import SearchResult from './SearchResult';
+import SearchResult from '../SearchResult'
 import { Grid } from '@mui/material';
 
 const QuickSearchResultsList = ({ results }) => {
