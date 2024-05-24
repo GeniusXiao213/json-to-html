@@ -69,6 +69,11 @@
     padding: 0px 0px 0px 9px;
 }
 
+.fields {
+    display: flex;
+    justify-content: space-between;
+}
+
 .field-label {
     display: flex;
     flex-direction: row;

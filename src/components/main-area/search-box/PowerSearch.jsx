@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, CardContent, InputLabel, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
+import { Box, Grid, CardContent, InputLabel, Select, MenuItem, FormControl, Tooltip, InputAdornment } from '@mui/material';
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -14,10 +14,12 @@ const initialValues = {
     country: "",
     place: "",
     radius: "",
+    radiusUnit: "kilometers", //set km as default unit
     legalForm: "",
     legalStatus: "",
     keywords: "",
     industrySegment: "",
+    standard: "uksic"
 }
 
 const countryOptions = [
@@ -130,17 +132,50 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
-                        <div className="field-label">
+                        <FormControl fullWidth>
+                          <div className="field-label">
                           <span>范围</span>
-                        </div>
-                        <Field
-                          label="距离"
-                          variant="outlined"
-                          fullWidth
-                          name="radius"
-                          value={values.radius}
-                          component={TextField}
-                        />
+                          </div>
+                          <Field
+                            label="距离"
+                            variant="outlined"
+                            fullWidth
+                            name="radius"
+                            value={values.radius}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            component={TextField}
+                            type="number"
+                            sx={{
+                              //Remove padding when using adornment
+                              '& .MuiOutlinedInput-root': {
+                                padding: 0,
+                              },
+                            }}
+                            inputProps={{ step: "0.1", min: "0" }} //Enable decimals. Positive values only
+                            InputProps={{
+                              endAdornment: (
+                                <InputAdornment position="end" className="adornment-field">
+                                  <Select
+                                    labelId="radius-unit-label"
+                                    id="radius-unit"
+                                    value={values.radiusUnit}
+                                    onChange={handleChange}
+                                    name="radiusUnit"
+                                    sx={{
+                                      backgroundColor: '#f5f5f5',
+                                      padding: 0,
+                                      margin: 0,
+                                    }}
+                                  >
+                                    <MenuItem value="kilometers">公里</MenuItem>
+                                    <MenuItem value="miles">英里</MenuItem>
+                                  </Select>
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                        </FormControl>
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
@@ -232,21 +267,39 @@ export const PowerSearch = () => {
                       </Grid>
 
                       <Grid item xs={12} sm={6} md={6}>
-                        <div className="field-label">
-                          <span>行业细分</span>
-                          <Tooltip
-                            className="tooltip"
-                            title={
-                              <React.Fragment>
-                                {"通过从下拉列表中选择，限制搜索到一个或多个行业的公司。"}
-                              </React.Fragment>
-                            }
-                            arrow
-                            placement='right'
-                          >
-                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
-                          </Tooltip>
+                        <div className="fields">
+                          <div className="field-label">
+                            <span>行业细分</span>
+                            <Tooltip
+                              className="tooltip"
+                              title={
+                                <React.Fragment>
+                                  {"通过从下拉列表中选择，限制搜索到一个或多个行业的公司。"}
+                                </React.Fragment>
+                              }
+                              arrow
+                              placement='right'
+                            >
+                              <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                            </Tooltip>
+                          </div>
+                          <div className="field-label">
+                            <span>标准</span>
+                            <Tooltip
+                              className="tooltip"
+                              title={
+                                <React.Fragment>
+                                  {"选择行业细分分类标准，即用于选择行业细分。"}
+                                </React.Fragment>
+                              }
+                              arrow
+                              placement='right'
+                            >
+                              <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                            </Tooltip>
+                          </div>
                         </div>
+                        
                         <Field
                           label="行业细分"
                           variant="outlined"
@@ -254,6 +307,36 @@ export const PowerSearch = () => {
                           name="industrySegment"
                           value={values.industrySegment}
                           component={TextField}
+                          sx={{
+                            //Remove padding when using adornment
+                            '& .MuiOutlinedInput-root': {
+                              padding: 0,
+                            },
+                          }}
+                          inputProps={{ step: "0.1", min: "0" }} //Enable decimals. Positive values only
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end" className="adornment-field">
+                                <Select
+                                  labelId="industry-segment-standard-label"
+                                  id="standard"
+                                  value={values.standard}
+                                  onChange={handleChange}
+                                  name="standard"
+                                  sx={{
+                                    backgroundColor: '#f5f5f5',
+                                    padding: 0,
+                                    margin: 0,
+                                  }}
+                                >
+                                  <MenuItem value="uksic">UKSIC</MenuItem>
+                                  <MenuItem value="nace">NACE</MenuItem>
+                                  <MenuItem value="isic">ISIC</MenuItem>
+                                  <MenuItem value="naics">NAICS</MenuItem>
+                                </Select>
+                              </InputAdornment>
+                            ),
+                          }}  
                         />
                       </Grid>
 
