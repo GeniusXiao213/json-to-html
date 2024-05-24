@@ -8,6 +8,7 @@ import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import axios from 'axios';
 import './searchRelate.css';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { companyClickedContext } from '../App';
 
 
 export const CompanyContext = createContext(null);
@@ -19,6 +20,8 @@ function Home() {
         setToggleState(index);
     };
 
+    //const [isCompanyClicked,setIsCompanyClicked]=useState(companyClickedContext);
+
     const [input, setInput] = useState(""); //user input 
     const [storeValue,setStoreValue] =useState(""); //fetch data from api based on change of this value
     const [isCompanyClicked,setIsCompanyClicked]=useState(false);
@@ -27,6 +30,8 @@ function Home() {
 
     const clearInput = () => {
         setInput(""); // Clear the input value
+        setIsCompanyClicked(false);
+        console.log('isCompanyClicked:'+isCompanyClicked);
         setSuggestResults([]);
     };
     const [loading,setLoading]=useState(true);
@@ -45,10 +50,11 @@ function Home() {
 
     useEffect(() => {
         if (isCompanyClicked) {
-        navigate('/home/companyinfo');
+            navigate('/home/companyinfo');
         }
         else{
             navigate('/home/intro');
+
         }
     }, [isCompanyClicked]);
 
@@ -138,12 +144,12 @@ function Home() {
                                     <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
                                     <ClearIcon className='clear-icon' onClick={clearInput} />
                                     </div>
-                                    <Grid container className='suggestResults-dropdown'>
+                                    <Grid container className='results-dropdown'>
                                         {/* <Grid item xs={2} className='suggestResults-heading'>
                                             <h7>COMPANY</h7>
                                         </Grid> */}
                                         <Grid item xs={12}>
-                                            <div className='suggestResults-list'>
+                                            <div className='results-list'>
                                                 {
                                                     //if(suggestResults && suggestResults.name){}
                                                     suggestResults.map((result, index) => {

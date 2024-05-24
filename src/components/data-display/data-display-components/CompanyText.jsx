@@ -12,7 +12,7 @@ function CompanyText() {
             <Container className='header-container'>
                 名字
             </Container>
-            <Box className='content-text'>
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
               {clickedCompany.name && clickedCompany.name.name}
             </Box>
         </Box>
@@ -22,8 +22,8 @@ function CompanyText() {
             <Container className='header-container'>
                   注册号
             </Container>
-            <Box className='content-text'>
-                {clickedCompany.register.uniqueKey && clickedCompany.register.uniqueKey}
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+                {clickedCompany.register && clickedCompany.register.uniqueKey}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -32,8 +32,8 @@ function CompanyText() {
             <Container className='header-container'>
                   地址
             </Container>
-            <Box className='content-text'>
-                    {clickedCompany.address.formattedValue && clickedCompany.address.formattedValue}
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+                    {clickedCompany.address && clickedCompany.address.formattedValue}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -42,7 +42,7 @@ function CompanyText() {
             <Container className='header-container'>
                   企业宗旨
             </Container>
-            <Box className='content-text'>
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
                 {clickedCompany.subject && clickedCompany.subject}
             </Box>
         </Box>

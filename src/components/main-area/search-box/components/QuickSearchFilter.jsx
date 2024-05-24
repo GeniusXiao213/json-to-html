@@ -42,7 +42,7 @@ const QuickSearchFilter = () => {
             <TextField 
             select
             className='country-select' 
-            label='all countries'
+            label='国家'
             value={country} 
             onChange={handleChange}
             variant='standard'
@@ -67,6 +67,9 @@ const QuickSearchFilter = () => {
               }
             }}
             sx={{
+              '::selection':{
+                color:'white',
+              },
               '& .MuiOutlinedInput-notchedOutline': {
                 border: 'none',
               },
@@ -79,6 +82,12 @@ const QuickSearchFilter = () => {
               '& .MuiInputLabel-root:active': {
                 color: 'white',
               },
+              '& .MuiSelect-select':{
+                display:'flex',
+                justifyContent:'center',
+                alignItems:'center',
+                color:'white !important'
+              }
               
             }}>
               <MenuItem value="united-kingdom"><GB className="country-flag" />英国</MenuItem>
