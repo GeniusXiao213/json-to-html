@@ -3,6 +3,7 @@ import Introduction from '../../components/main-area/text-area/text-area-compone
 import Coverage from '../../components/main-area/text-area/text-area-components/coverage/Coverage';
 import Partner from '../../components/main-area/text-area/text-area-components/Partner';
 import { Box } from '@mui/material';
+import Highlight from '../../components/main-area/text-area/text-area-components/Highlight';
 
 function Intro({company}) {
   return (
@@ -11,7 +12,8 @@ function Intro({company}) {
       <Box className='text-area'>
           <Introduction />
           <Coverage />
-          <Partner />
+          {/* <Partner /> */}
+          <Highlight />
       </Box>
     </>
   )

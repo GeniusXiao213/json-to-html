@@ -274,7 +274,7 @@ export const PowerSearch = () => {
                         <Box sx={{display:'flex',alignItems:'center'}}>
 
                         <SearchIcon className='search-icon' />
-                        <h7 className='submit-btn-text'>提交搜索</h7>
+                        <h7>提交搜索</h7>
                         </Box>
                     </button>
                   </Grid>

@@ -23,6 +23,7 @@
     color: white;
     font-weight: 600;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .add-section-btn span {
@@ -44,6 +45,7 @@
     height: 40px;
     width: 40px;
     color: rgb(245, 51, 51);
+    cursor: pointer;
 }
 
 .dash {
@@ -54,20 +56,25 @@
 .submit-form {
     padding: 5px;
     align-items: center;
+    display: flex;
+    justify-content: end;
 }
 
 .submit-btn {
     margin: 15px;
     background-color: #455d89;
     color: white;
-    padding: 7px 14px;
+    padding: 8px 35px;
     border: none;
     align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .submit-btn-text {
     padding: 0px 0px 0px 9px;
-}
+} 
+/* to delete */
 
 .field-label {
     display: flex;
