@@ -1,11 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "欧企查",
+  "name": "欧企查",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "Logo.jpg",
+      "sizes": "695x655",
+      "type": "image/jpg"
+    },
+    {
+      "src": "Logo.svg",
+      "type": "image/svg",
+      "sizes": "695x655"
     },
     {
       "src": "logo192.png",

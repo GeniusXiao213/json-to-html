@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
     "country-flag-icons": "^1.5.11",
+    "fonts.css": "^2.0.0",
     "formik": "^2.4.6",
     "formik-material-ui": "^4.0.0-alpha.2",
     "fs": "^0.0.1-security",
