@@ -79,7 +79,10 @@
 .field-label span {
     padding-right: 2px;
     font-size: small;
-    font-weight: 550;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    color: black;
+    font-family: Microsoft Yahei;
 }
 
 .field-label-info {
