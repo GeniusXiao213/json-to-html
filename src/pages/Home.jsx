@@ -30,6 +30,8 @@ function Home() {
 
     const clearInput = () => {
         setInput(""); // Clear the input value
+        setIsCompanyClicked(false);
+        console.log('isCompanyClicked:'+isCompanyClicked);
         setSuggestResults([]);
     };
     const [loading,setLoading]=useState(true);
@@ -48,10 +50,11 @@ function Home() {
 
     useEffect(() => {
         if (isCompanyClicked) {
-        navigate('/home/companyinfo');
+            navigate('/home/companyinfo');
         }
         else{
             navigate('/home/intro');
+
         }
     }, [isCompanyClicked]);
 
