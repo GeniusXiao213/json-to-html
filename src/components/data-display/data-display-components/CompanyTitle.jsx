@@ -7,7 +7,6 @@ import { CompanyContext } from '../../../pages/Home';
 
 function CompanyTitle() {
   const clickedCompany = useContext(CompanyContext);
-  console.log('clickedCompany.name'+clickedCompany.name);
   return (
     <Box>
         <Box sx={{display:'flex',padding:'1em 2em',alignItems:'center'}} >

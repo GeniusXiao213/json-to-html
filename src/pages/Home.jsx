@@ -20,6 +20,8 @@ function Home() {
         setToggleState(index);
     };
 
+    const apiKey='4Q2Z-GA4E';
+
     //const [isCompanyClicked,setIsCompanyClicked]=useState(companyClickedContext);
 
     const [input, setInput] = useState(""); //user input 
@@ -31,7 +33,6 @@ function Home() {
     const clearInput = () => {
         setInput(""); // Clear the input value
         setIsCompanyClicked(false);
-        console.log('isCompanyClicked:'+isCompanyClicked);
         setSuggestResults([]);
     };
     const [loading,setLoading]=useState(true);
@@ -68,25 +69,26 @@ function Home() {
             //     setSuggestResults(json);
             // });
             ///_api/search/v1/universal?query=ab&api_key=4Q2Z-GA4E
-            const response = await axios.get(`/_api/search/v1/universal?query=${input}&api_key=4Q2Z-GA4E`); 
+            const response = await axios.get(`/_api/search/v1/universal?query=${input}&api_key=${apiKey}`); 
             setSuggestResults(response.data.results);
         } catch (error) {
-          console.error('Error fetching searchedCompany:', error);
+          //console.error('Error fetching searchedCompany:', error);
         }
       };
-        fetchData();
+      if(storeValue!='')
+        {
+            fetchData();
+        }
       }, [storeValue]);
 
     const handleChange = (value) => {
         setInput(value);
         setStoreValue(value);
-        console.log('input:'+input)
         //setSuggestResults([]); //clear history suggestResults
         //fetchData(value);
     };
 
     const handleCompanyClick=(result) =>{
-        console.log(result.company)
         //result.name.name && setName(result.name.name);
         //result.address.city && setName(result.address.city);
         //result.name.name && setName(result.name.name);
@@ -97,7 +99,6 @@ function Home() {
         setInput(result.company.name.name+', '+result.company.address.formattedValue);
         setIsCompanyClicked(true);
         setClickedCompany(result.company)
-        console.log(clickedCompany)
         setSuggestResults([]);
     }
 
