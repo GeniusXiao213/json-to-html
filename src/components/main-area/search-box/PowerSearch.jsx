@@ -163,7 +163,7 @@ export const PowerSearch = () => {
                                     onChange={handleChange}
                                     name="radiusUnit"
                                     sx={{
-                                      backgroundColor: '#f5f5f5',
+                                      backgroundColor: '#e8e8e8',
                                       padding: 0,
                                       margin: 0,
                                     }}
@@ -324,7 +324,7 @@ export const PowerSearch = () => {
                                   onChange={handleChange}
                                   name="standard"
                                   sx={{
-                                    backgroundColor: '#f5f5f5',
+                                    backgroundColor: '#e8e8e8',
                                     padding: 0,
                                     margin: 0,
                                   }}
