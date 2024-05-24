@@ -20,7 +20,7 @@ function Home() {
         setToggleState(index);
     };
 
-    const apiKey='4Q2Z-GA4E';
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     //const [isCompanyClicked,setIsCompanyClicked]=useState(companyClickedContext);
 
