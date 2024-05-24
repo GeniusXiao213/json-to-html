@@ -76,6 +76,11 @@
 } 
 /* to delete */
 
+.fields {
+    display: flex;
+    justify-content: space-between;
+}
+
 .field-label {
     display: flex;
     flex-direction: row;
