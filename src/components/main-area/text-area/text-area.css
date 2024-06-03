@@ -86,6 +86,29 @@
   }
 
 
+.footer-text {
+    flex-direction: column;
+    text-align: left;
+}
+
+.CC-img {
+    width: 120px;
+    max-height: 50px;
+    padding: 0px 10px 10px 0;
+}
+
+.licenses {
+    text-align: right;
+    padding: 10px 0;
+}
+
+.license-links {
+    text-decoration: none;
+    font-weight: bold !important;
+    color: #447c9c !important;
+}
+
+
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     .meritu-img{
