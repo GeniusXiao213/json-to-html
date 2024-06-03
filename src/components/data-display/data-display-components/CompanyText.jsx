@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { Box,Divider, Container} from '@mui/material';
+import { Box,Divider, Container, Tooltip} from '@mui/material';
 import '../../main-area/text-area/text-area.css';
 import { CompanyContext } from '../../../pages/Home';
 
@@ -13,7 +13,16 @@ function CompanyText() {
                 名字
             </Container>
             <Box className='content-text' sx={{fontWeight:'450 !important'}}>
-              {clickedCompany.name && clickedCompany.name.name}
+              {clickedCompany.name.name && clickedCompany.name.name}
+            </Box>
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+              {clickedCompany.name.legalForm && 
+              <Box sx={{display:'flex',alignItems:'center'}}>
+                <Tooltip title="法律形式">
+                    <Box className='company-text-label'>法律形式</Box>
+
+                </Tooltip>
+                {clickedCompany.name.legalForm}</Box>}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
@@ -25,6 +34,16 @@ function CompanyText() {
             <Box className='content-text' sx={{fontWeight:'450 !important'}}>
                 {clickedCompany.register && clickedCompany.register.uniqueKey}
             </Box>
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+            {clickedCompany.filings && clickedCompany.filings.map((filing)=>(
+                filing.source && <Box sx={{display:'flex',alignItems:'center',marginBottom:'0.3em',color:'#007388',cursor:'pointer'}}>
+                <Tooltip title="法律形式">
+                    <Box className='company-text-label'>{filing.source}</Box>
+
+                </Tooltip>
+                {filing.name}</Box>
+            ))}
+            </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
@@ -32,7 +51,7 @@ function CompanyText() {
             <Container className='header-container'>
                   地址
             </Container>
-            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+            <Box className='content-text' sx={{fontWeight:'450 !important',color:'#007388',cursor:'pointer'}}>
                     {clickedCompany.address && clickedCompany.address.formattedValue}
             </Box>
         </Box>
@@ -52,8 +71,17 @@ function CompanyText() {
             <Container className='header-container'>
                   附加信息
             </Container>
-            <Box className='content-text'>
-                {/* {additionalInfo} */}
+            <Box className='content-text' sx={{fontWeight:'450 !important'}}>
+            {/* {clickedCompany.segmentCodes &&  */}
+            {/* // // clickedCompany.segmentCodes.uksic.map((uksic)=>(
+            // //     <Box sx={{display:'flex',alignItems:'center',marginBottom:'0.3em',color:'#007388',cursor:'pointer'}}>
+            // //     <Tooltip title="segment code">
+            // //         <Box className='company-text-label'>{uksic}</Box>
+
+            // //     </Tooltip> */}
+            
+               
+            {/* //</Box>} */}
             </Box>
         </Box>
         <Divider variant='fullWidth' className='divider'/>
