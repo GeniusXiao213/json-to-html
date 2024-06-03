@@ -17,8 +17,8 @@ function CompanyTitle() {
             </Typography>
         </Box>
         <Box sx={{display:'flex',padding:'0 2em',alignItems:'center'}}>
-            <Button variant="contained" className='title-button'>档案</Button>
-            <Button variant="contained" className='title-button'>观察</Button>
+            <button variant="contained" className='title-btn'>档案</button>
+            <button variant="contained" className='title-btn'>观察</button>
         </Box>
         <Divider variant='fullWidth' className='title-divider' />
     </Box>
