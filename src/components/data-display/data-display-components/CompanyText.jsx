@@ -3,6 +3,7 @@ import { Box,Divider, Container, Tooltip} from '@mui/material';
 import '../../main-area/text-area/text-area.css';
 import { CompanyContext } from '../../../pages/Home';
 import LicensePic from '../../../../src/assets/images/CCby.png';
+import DividerWithChip from '../../main-area/search-box/components/DividerWithChip';
 
 function CompanyText() {
     const clickedCompany = useContext(CompanyContext);
@@ -26,7 +27,8 @@ function CompanyText() {
                 {clickedCompany.name.legalForm}</Box>}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        {/* <Divider variant='fullWidth' className='divider'/> */}
+        <DividerWithChip />
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -46,7 +48,8 @@ function CompanyText() {
             ))}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        {/* <Divider variant='fullWidth' className='divider'/> */}
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -56,7 +59,8 @@ function CompanyText() {
                     {clickedCompany.address && clickedCompany.address.formattedValue}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        {/* <Divider variant='fullWidth' className='divider'/> */}
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -66,7 +70,8 @@ function CompanyText() {
                 {clickedCompany.subject && clickedCompany.subject}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        {/* <Divider variant='fullWidth' className='divider'/> */}
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -85,7 +90,7 @@ function CompanyText() {
             {/* //</Box>} */}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -95,7 +100,7 @@ function CompanyText() {
                 {/* {history} */}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -105,7 +110,7 @@ function CompanyText() {
                 {/* {network} */}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        <Divider sx={{marginTop:'5px',marginBottom:'2em'}}/>
         <Box sx={{display:'flex',flexDirection:'column'}}>
             
             <Container className='header-container'>
@@ -115,7 +120,8 @@ function CompanyText() {
                 {/* {publications} */}
             </Box>
         </Box>
-        <Divider variant='fullWidth' className='divider'/>
+        {/* <Divider variant='fullWidth' className='divider'/> */}
+        <DividerWithChip />
         <div className="info-footer">
             <Box sx={{display:'flex', flexDirection:'column'}} className='footer-text'>   
                 {/* {info} */}
@@ -128,6 +134,7 @@ function CompanyText() {
                 </div>    
             </Box>
         </div>
+        
     </Box>
   )
 }

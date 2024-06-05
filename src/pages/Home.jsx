@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback,Routes ,Route, createContext } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from '@mui/icons-material/Clear';
 import Tips from '../components/main-area/search-box/components/Tips';
@@ -102,8 +102,15 @@ function Home() {
         setSuggestResults([]);
     }
 
+    // const handleSubmit=(e)=>{
+    //     e.preventDefault();
+    //     console.log('enter!')
+    // }
+
     return (
         <Box className="mainarea">
+             
+
         <Box className='search-box'
             sx={{
                 width: 'fullwidth',
@@ -113,15 +120,19 @@ function Home() {
                 justifySelf: 'center',
                 borderRadius: 1,
                 bgcolor: '#447c9c',
+                position:'relative'
         }}>
+            <div class="folded-ribbon">18个国家</div>
             <Box className='search-box-header' >
             欧洲公司搜索引擎
             </Box>
             <Box className='search-area'>
+
                 <Box className="tabs-bar">
                 <div>
                     <div className="container">
                         <div className="bloc-tabs">
+
                             {/* Quick Search */}
                             <button className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'}
                             
@@ -139,12 +150,18 @@ function Home() {
                             <div className={toggleState === 1 ? 'content active-content' : 'content'}>
                                 {/* SearchBar */}
                                 <div className='qs-content'>
-                                    <div className="input-wrapper" >
-                                    <SearchIcon className="search-icon" />
-                                    {/* Company or Person */}
-                                    <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
-                                    <ClearIcon className='clear-icon' onClick={clearInput} />
-                                    </div>
+                                {/* <form onSubmit={handleSubmit} > */}
+                                    <Box sx={{display:'flex',width:'100%'}}>
+
+                                            <div className="input-wrapper" >
+                                            <SearchIcon className="search-icon" />
+                                            {/* Company or Person */}
+                                            <input placeholder="公司或个人" value={input} onChange={(e) => handleChange(e.target.value)} />
+                                            <ClearIcon className='clear-icon' onClick={clearInput} />
+                                            </div>
+                                            {/* <Button type="submit" variant="outlined" sx={{height:'inherit',wordBreak:'normal !important',marginLeft:'5px',backgroundColor:'white'}}  >搜索</Button> */}
+                                    </Box>
+                                {/* </form> */}
                                     <Grid container className='results-dropdown'>
                                         {/* <Grid item xs={2} className='suggestResults-heading'>
                                             <h7>COMPANY</h7>
