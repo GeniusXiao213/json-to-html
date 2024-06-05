@@ -128,6 +128,7 @@
     padding: 2px 5px;
     display: flex;
     align-items: flex-start;
+    width:100%
 }
 
 input {
@@ -145,7 +146,6 @@ input:focus {
 
 .search-icon {
     align-self: center;
-    cursor: pointer;
 }
 
 .clear-icon {
@@ -191,3 +191,38 @@ input:focus {
     width: 20px;
     margin-right: 5px;
 }
+
+
+.submit-button{
+    height:inherit;
+    word-break:normal !important;
+    margin-left:5px;
+    background-color:white;
+}
+
+/* .submit-button:active{
+    background-color:yellow;
+    color:white
+}
+
+.submit-button:hover{
+    background-color:yellow;
+    color:white
+} */
+.folded-ribbon{
+    --f: 10px; /* control the folded part*/
+    --r: 15px; /* control the ribbon shape */
+    --t: 10px; /* the top offset */
+    
+    position: absolute;
+    color:white;
+    inset: var(--t) calc(-1*var(--f)) auto auto;
+    padding: 0 10px var(--f) calc(10px + var(--r));
+    clip-path: 
+      polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+        var(--r) calc(50% - var(--f)/2));
+    background: #BD1550;
+    box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
+  }
+  
