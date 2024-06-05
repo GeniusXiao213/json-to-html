@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { Box, Grid, InputLabel, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
-import { Form, Formik, Field } from 'formik';
-import { TextField } from "formik-material-ui";
+import React, { useState, useMemo } from 'react';
+import { Box, Grid, FormControl, Tooltip } from '@mui/material';
+import { Form, Formik } from 'formik';
 import { MdiDeleteCircle } from './components/deleteCircle';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './search.css';
 
+import { Input, setOptions, Datepicker, Select } from '@mobiscroll/react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 //Data
 // const initialValues = {
@@ -19,58 +20,63 @@ import './search.css';
 // }
 
 const performanceIndicatorOptions = [
-    { label: "每位员工的平均工资", value: "average-salaries-per-employee" },
-    { label: "基础资本/股本", value: "base-share-capital" },
-    { label: "现有现金", value: "cash-on-hand" },
-    { label: "材料成本", value: "cost-of-materials" },
-    { label: "收益", value: "earnings" },
-    { label: "盈利符合年增长率", value: "earnings-cagr" },
-    { label: "员工编号", value: "employee-number" },
-    { label: "资产净值 ", value: "equity" },
-    { label: "股权比例", value: "equity-ratio" },
-    { label: "负债", value: "liabilities" },
-    { label: "每年公共资金数量", value: "public-fundings-per-year" },
-    { label: "每年专利数", value: "patents-per-year" },
-    { label: "养老基金条款", value: "pension-provisions" },
-    { label: "房地产", value: "real-estate" },
-    { label: "应收账款", value: "receiveables" },
-    { label: "股本回报率", value: "return-on-equity" },
-    { label: "销售回报率", value: "return-on-sales" },
-    { label: "收入", value: "revenue" },
-    { label: "收入复合年增长率", value: "revenue-cagr" },
-    { label: "每位员工的收入", value: "revenue-per-employee" },
-    { label: "税收", value: "taxes" },
-    { label: "税率", value: "tax-ratio" },
-    { label: "总资产", value: "total-assets" },
-    { label: "每年公共资金总额", value: "total-public-funding-per-year" },
-    { label: "每年的商标数量", value: "trademarks-per-year" },
-    { label: "工资和薪金", value: "wages-and-salaries" },
+    { text: "每位员工的平均工资", value: "average-salaries-per-employee" },
+    { text: "基础资本/股本", value: "base-share-capital" },
+    { text: "现有现金", value: "cash-on-hand" },
+    { text: "材料成本", value: "cost-of-materials" },
+    { text: "收益", value: "earnings" },
+    { text: "盈利符合年增长率", value: "earnings-cagr" },
+    { text: "员工编号", value: "employee-number" },
+    { text: "资产净值 ", value: "equity" },
+    { text: "股权比例", value: "equity-ratio" },
+    { text: "负债", value: "liabilities" },
+    { text: "每年公共资金数量", value: "public-fundings-per-year" },
+    { text: "每年专利数", value: "patents-per-year" },
+    { text: "养老基金条款", value: "pension-provisions" },
+    { text: "房地产", value: "real-estate" },
+    { text: "应收账款", value: "receiveables" },
+    { text: "股本回报率", value: "return-on-equity" },
+    { text: "销售回报率", value: "return-on-sales" },
+    { text: "收入", value: "revenue" },
+    { text: "收入复合年增长率", value: "revenue-cagr" },
+    { text: "每位员工的收入", value: "revenue-per-employee" },
+    { text: "税收", value: "taxes" },
+    { text: "税率", value: "tax-ratio" },
+    { text: "总资产", value: "total-assets" },
+    { text: "每年公共资金总额", value: "total-public-funding-per-year" },
+    { text: "每年的商标数量", value: "trademarks-per-year" },
+    { text: "工资和薪金", value: "wages-and-salaries" },
 ]
 
 const eventOptions = [
-    { label: "地址变更", value: "address-change" },
-    { label: "年度报告", value: "annual-report" },
-    { label: "资金变更", value: "capital-change" },
-    { label: "控制权变更", value: "change-of-control" },
-    { label: "公司章程", value: "company-statute" },
-    { label: "持续经营", value: "continuation" },
-    { label: "破产申请", value: "insolvency-filing" },
-    { label: "破产程序更新", value: "insolvency-froceedings-update" },
-    { label: "法律形式变更", value: "legal-form-change" },
-    { label: "LEI分配", value: "lei-allocation" },
-    { label: "清算", value: "liquidation" },
-    { label: "管理变革", value: "management-change" },
-    { label: "合并/收购", value: "merger-acquisition" },
-    { label: "名称改变", value: "name-change" },
-    { label: "专利", value: "patent" },
-    { label: "公共资助", value: "public-funding" },
-    { label: "登记变更", value: "register-change" },
-    { label: "登记", value: "registration" },
-    { label: "恢复", value: "restoration" },
-    { label: "股东协议", value: "shareholder-agreement" },
-    { label: "终止", value: "termination" },
-    { label: "商标", value: "trademark" },
+    { text: "地址变更", value: "address-change" },
+    { text: "年度报告", value: "annual-report" },
+    { text: "资金变更", value: "capital-change" },
+    { text: "控制权变更", value: "change-of-control" },
+    { text: "公司章程", value: "company-statute" },
+    { text: "持续经营", value: "continuation" },
+    { text: "破产申请", value: "insolvency-filing" },
+    { text: "破产程序更新", value: "insolvency-froceedings-update" },
+    { text: "法律形式变更", value: "legal-form-change" },
+    { text: "LEI分配", value: "lei-allocation" },
+    { text: "清算", value: "liquidation" },
+    { text: "管理变革", value: "management-change" },
+    { text: "合并/收购", value: "merger-acquisition" },
+    { text: "名称改变", value: "name-change" },
+    { text: "专利", value: "patent" },
+    { text: "公共资助", value: "public-funding" },
+    { text: "登记变更", value: "register-change" },
+    { text: "登记", value: "registration" },
+    { text: "恢复", value: "restoration" },
+    { text: "股东协议", value: "shareholder-agreement" },
+    { text: "终止", value: "termination" },
+    { text: "商标", value: "trademark" },
 ]
+
+setOptions({
+    theme: 'ios',
+    themeVariant: 'light'
+});
 
 const PowerSearchAdd = () => {
 
@@ -98,6 +104,14 @@ const PowerSearchAdd = () => {
     const onSubmit = (values) => {
         console.log(values)
     }
+
+    const inputProps = useMemo(
+        () => ({
+        className: 'md-mobile-picker-input',
+        placeholder: 'Select the Start and End dates',
+        }),
+        [],
+    );
     
   return (
     <div>
@@ -126,54 +140,37 @@ const PowerSearchAdd = () => {
                                         {performanceIndicators.map((perf, index) => (
                                             <div className="perf-indicator-extra" key={index}>
                                                 <div className="field-label">
-                                                    <span>绩效指标</span>
-                                                    <Tooltip
-                                                        className="tooltip"
-                                                        title={
-                                                            <React.Fragment>
-                                                                {"这些过滤器的详细信息可以在我们的帮助中心关于Performance Indicator过滤的文章中找到。"}
-                                                            </React.Fragment>
-                                                        }
-                                                        arrow
-                                                        placement='right'
-                                                    >
-                                                        <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
-                                                    </Tooltip>
+                                                    <div className="field-label-content">
+                                                       <span>绩效指标</span>
+                                                        <Tooltip
+                                                            className="tooltip"
+                                                            title={
+                                                                <React.Fragment>
+                                                                    {"这些过滤器的详细信息可以在我们的帮助中心关于Performance Indicator过滤的文章中找到。"}
+                                                                </React.Fragment>
+                                                            }
+                                                            arrow
+                                                            placement='right'
+                                                        >
+                                                            <InfoOutlinedIcon className='field-label-info' fontSize='10px'/>
+                                                        </Tooltip> 
+                                                    </div>
                                                 </div>
-                                                <Grid item container spacing={1} justify="center">
+                                                <div className="mbsc-row">
                                                 
                                                     <Grid item xs={12} sm={4} md={4}>
                                                         <FormControl fullWidth variant="outlined">
-                                                            <InputLabel id={`performance-indicator-label-${index}`}>
-                                                                绩效指标
-                                                            </InputLabel>
                                                             <Select
-                                                                labelId={`performance-indicator-label-${index}`}
                                                                 id={`performance-indicator-select-${index}`}
-                                                                label="绩效指标"
-                                                                onChange={handleChange}
-                                                                onBlur={handleBlur}
-                                                                value={values.performanceIndicator}
-                                                                name={`performanceIndicators[${index}].performanceIndicator`}>
-                                                                {performanceIndicatorOptions.map((item) => (
-                                                                <MenuItem key={item.value} value={item.value}>
-                                                                    {item.label}
-                                                                </MenuItem>
-                                                                ))}
-                                                            </Select>
+                                                                placeholder="绩效指标"
+                                                                inputStyle='box'
+                                                                data={performanceIndicatorOptions} />
                                                         </FormControl>
                                                     </Grid>
                                                     
                                                     
                                                     <Grid item xs={4.5} sm={2.5} md={2.5}>
-                                                        <Field
-                                                        label="最小"
-                                                        variant="outlined"
-                                                        fullWidth
-                                                        name={`performanceIndicators[${index}].min`}
-                                                        // value={values.min}
-                                                        component={TextField}
-                                                        />
+                                                        <Input type='text' placeholder='最小' inputStyle='box' name={`performanceIndicators[${index}].min`} />
                                                     </Grid>
 
                                                     <Grid item xs={1} sm={1} md={1}>
@@ -181,81 +178,58 @@ const PowerSearchAdd = () => {
                                                     </Grid>
 
                                                     <Grid item xs={4.5} sm={2.5} md={2.5}>
-                                                        <Field
-                                                        label="最大" 
-                                                        variant="outlined"
-                                                        fullWidth
-                                                        name={`performanceIndicators[${index}].max`}
-                                                        // value={values.max}
-                                                        component={TextField}
-                                                        />
+                                                        <Input type='text' placeholder='最大' inputStyle='box' name={`performanceIndicators[${index}].max`} />
                                                     </Grid>
-                                                    <Grid item xs={2} sm={1.5} md={1.5}>
+                                                    <Grid item xs={2} sm={1.5} md={1.43}>
                                                         <MdiDeleteCircle className="delete-icon" onClick={() => handleRemovePerf(index)} />
                                                     </Grid>    
-                                                </Grid>
+                                                </div>
                                             </div>
                                         ))}
 
                                         {events.map((event, index) => (
                                             <div className="event-extra" key={index}>
                                                 <div className="field-label">
-                                                    <span>活动</span>
+                                                    <div className="field-label-content">
+                                                       <span>活动</span> 
+                                                    </div>
                                                 </div>
-                                                <Grid item container spacing={1} justify="center">
+                                                <div className="mbsc-row">
                                                     
                                                     <Grid item xs={12} sm={4} md={4}>
                                                     <FormControl fullWidth variant="outlined">
-                                                        <InputLabel id={`event-label-${index}`}>
-                                                            活动
-                                                        </InputLabel>
                                                         <Select
-                                                            labelId={`event-label-${index}`}
                                                             id={`event-select-${index}`}
-                                                            label="活动"
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            value={values.event}
-                                                            name={`events[${index}].event`}>
-                                                            {eventOptions.map((item) => (
-                                                            <MenuItem key={item.value} value={item.value}>
-                                                                {item.label}
-                                                            </MenuItem>
-                                                            ))}
-                                                        </Select>
+                                                            placeholder="活动"
+                                                            inputStyle='box'
+                                                            data={eventOptions} />
                                                         </FormControl>
                                                     </Grid>
 
-                                                    <Grid item xs={4.5} sm={2.5} md={2.5}>
-                                                        <Field
-                                                        label="开始日期"
-                                                        variant="outlined"
-                                                        fullWidth
-                                                        name={`events[${index}].startDate`}
-                                                        //value={values.startDate}
-                                                        component={TextField}
-                                                        />
+                                                    <Grid item xs={.4} sm={.4} md={.3} />
+
+                                                    <Grid item xs={7} sm={4.5} md={4.5}>
+                                                        <div className="md-mobile-picker-header">
+                                                            <Datepicker 
+                                                                controls={['date']} 
+                                                                inputComponent="input" 
+                                                                inputProps={inputProps} 
+                                                                select="range"
+                                                                showRangeLabels={true}
+                                                                rangeStartLabel="开始日期"
+                                                                rangeEndLabel="结束日期"
+                                                                display='anchored'/>
+                                                            {/* <Input type='text' placeholder='开始日期' inputStyle='box' name={`events[${index}].startDate`} /> */}
+                                                        </div>
                                                     </Grid>
 
-                                                    <Grid item xs={1} sm={1} md={1}>
-                                                        <RemoveOutlinedIcon className='dash'/>
-                                                    </Grid>
-
-                                                    <Grid item xs={4.5} sm={2.5} md={2.5}>
-                                                        <Field
-                                                        label="结束日期"
-                                                        variant="outlined"
-                                                        fullWidth
-                                                        name={`events[${index}].endDate`}
-                                                        //value={values.endDate}
-                                                        component={TextField}
-                                                        />
-                                                    </Grid>
-
-                                                    <Grid item xs={2} sm={1.5} md={1.5}>
+                                                    <Grid item xs={2.5} sm={.85} md={.6} />
+                                                    <Grid item xs={2} sm={2} md={2.6}>
                                                         <MdiDeleteCircle className="delete-icon" onClick={() => handleRemoveEvent(index)} />
                                                     </Grid>  
-                                                </Grid>
+                                            
+                                                    
+                                                </div>
                                             </div>
                                         ))}
                                     </Form>
