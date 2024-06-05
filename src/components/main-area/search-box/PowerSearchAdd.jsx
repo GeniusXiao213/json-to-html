@@ -6,7 +6,7 @@ import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './search.css';
 
-import { Input, setOptions, Datepicker, Select } from '@mobiscroll/react';
+import { Input, setOptions, Datepicker, Select, localeZh } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 //Data
@@ -216,8 +216,9 @@ const PowerSearchAdd = () => {
                                                                 inputProps={inputProps} 
                                                                 select="range"
                                                                 showRangeLabels={true}
-                                                                rangeStartLabel="开始日期"
-                                                                rangeEndLabel="结束日期"
+                                                                locale={localeZh}
+                                                                // rangeStartLabel="开始日期"
+                                                                // rangeEndLabel="结束日期"
                                                                 display='anchored'/>
                                                             {/* <Input type='text' placeholder='开始日期' inputStyle='box' name={`events[${index}].startDate`} /> */}
                                                         </div>
