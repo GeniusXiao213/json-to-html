@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from '@mui/icons-material/Clear';
 import Tips from '../components/main-area/search-box/components/Tips';
 import QuickSearchFilter from '../components/main-area/search-box/components/QuickSearchFilter';
+import QucikSearchFilterNew from '../components/main-area/search-box/components/QucikSearchFilterNew';
 import { PowerSearch } from '../components/main-area/search-box/PowerSearch';
 import axios from 'axios';
 import './searchRelate.css';
@@ -184,7 +185,9 @@ function Home() {
                                             </div>
                                         </Grid>
                                     </Grid>
-                                    <QuickSearchFilter />
+                                    <Box sx={{width:'100%',display:'flex',justifyContent:'end'}}>
+                                        <QucikSearchFilterNew />
+                                    </Box>
                                 </div>
                             </div>
                             <div className={toggleState === 2 ? 'content active-content' : 'content'}>

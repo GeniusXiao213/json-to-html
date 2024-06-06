@@ -6,13 +6,13 @@ function Footer() {
   return (
     <Grid container className='footer-container'>
         <Grid item xs={6}>
-          <Link href="#" >
+          <Link href="/" >
             <Typography variant='h8'>联系我们</Typography>
           </Link>
         </Grid>
 
         <Grid item xs={6}>
-          <Link href="#" >
+          <Link href="/" >
             <Typography variant='h8'>关于我们</Typography>
           </Link>
           

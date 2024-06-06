@@ -216,12 +216,15 @@ export const PowerSearch = () => {
                 </div>
               </div>
               
-              <button className="submit-btn">
-                <Box sx={{ display:'flex', alignItems:'center' }}>
-                  <SearchIcon className='search-icon' />
-                  <h7>提交搜索</h7>
-                </Box>
-              </button>
+              <Box sx={{width:'100%',display:'flex',justifyContent:'end'}}>
+                <button className="submit-btn">
+                  <Box sx={{ display:'flex', alignItems:'center' }}>
+                    <SearchIcon className='search-icon' />
+                    <h7>提交搜索</h7>
+                  </Box>
+                </button>
+
+              </Box>
             </div>
           </div>
         </div>

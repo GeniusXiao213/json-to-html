@@ -1,0 +1,11 @@
+/* new-country-filter */
+.select-container
+.mbsc-ios.mbsc-textfield-wrapper-box,
+.mbsc-ios.mbsc-textfield-wrapper-outline {
+  margin: 0 !important;
+}
+
+/* .select-container
+.mbsc-popup{
+  min-width: none !important;
+} */
