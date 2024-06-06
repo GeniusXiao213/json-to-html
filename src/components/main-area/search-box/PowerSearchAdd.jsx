@@ -9,15 +9,6 @@ import './search.css';
 import { Input, setOptions, Datepicker, Select, localeZh } from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
-//Data
-// const initialValues = {
-//     performanceIndicator: "",
-//     min: "",
-//     max: "",
-//     event: "",
-//     startDate: "",
-//     endDate: "",
-// }
 
 const performanceIndicatorOptions = [
     { text: "每位员工的平均工资", value: "average-salaries-per-employee" },
@@ -115,17 +106,20 @@ const PowerSearchAdd = () => {
     
   return (
     <div>
-        <div className='buttons-div'>
-            <div className="performance-indicator-btn">
-                <button className='add-section-btn' onClick={handleAddPerf}><span>+ </span>绩效指标</button>
-            </div>
-            <div className="event-filter-btn">
-                <button className='add-section-btn' onClick={handleAddEvent}><span>+ </span>事件过滤器</button>
+        <div className="mbsc-row">
+            <div className='buttons-div'>
+                <div className="performance-indicator-btn">
+                    <button className='add-section-btn' onClick={handleAddPerf}><span>+ </span>绩效指标</button>
+                </div>
+                <div className="event-filter-btn">
+                    <button className='add-section-btn' onClick={handleAddEvent}><span>+ </span>事件过滤器</button>
+                </div>
             </div>
         </div>
+        
         <div className="performance-indicator-fields">
             <Grid container justify="center" spacing={1}>
-                <Grid item sm={14} md={14} >
+                <Grid item xs={11.25} sm={14} md={14} >
                     <Box>
                         <Formik
                         initialValues={{
@@ -134,12 +128,13 @@ const PowerSearchAdd = () => {
                         }}
                         enableReinitialize
                         onSubmit={onSubmit}>
-                            {({ values, handleChange, handleBlur }) => {
+                            {() => {
                                 return (
-                                    <Form className='power-search-extra'>
+                                    <Form className='power-search-extra mbsc-col-md-12 mbsc-col-12'>
+                                        
                                         {performanceIndicators.map((perf, index) => (
                                             <div className="perf-indicator-extra" key={index}>
-                                                <div className="field-label">
+                                                <div className="extra-field-label">
                                                     <div className="field-label-content">
                                                        <span>绩效指标</span>
                                                         <Tooltip
@@ -188,48 +183,47 @@ const PowerSearchAdd = () => {
                                         ))}
 
                                         {events.map((event, index) => (
-                                            <div className="event-extra" key={index}>
-                                                <div className="field-label">
+                                            <div className="event-extra" key={index} fullWidth>
+                                                <div className="extra-field-label">
                                                     <div className="field-label-content">
                                                        <span>活动</span> 
                                                     </div>
                                                 </div>
                                                 <div className="mbsc-row">
+                                                        <Grid item xs={12} sm={4} md={4}>
+                                                            
+                                                                <Select
+                                                                id={`event-select-${index}`}
+                                                                placeholder="活动"
+                                                                inputStyle='box'
+                                                                data={eventOptions} />
                                                     
-                                                    <Grid item xs={12} sm={4} md={4}>
-                                                    <FormControl fullWidth variant="outlined">
-                                                        <Select
-                                                            id={`event-select-${index}`}
-                                                            placeholder="活动"
-                                                            inputStyle='box'
-                                                            data={eventOptions} />
-                                                        </FormControl>
-                                                    </Grid>
+                                                        </Grid>
 
-                                                    <Grid item xs={.4} sm={.4} md={.3} />
+                                                        <Grid item xs={.4} sm={.3} md={.24} />
 
-                                                    <Grid item xs={7} sm={4.5} md={4.5}>
-                                                        <div className="md-mobile-picker-header">
-                                                            <Datepicker 
-                                                                controls={['date']} 
-                                                                inputComponent="input" 
-                                                                inputProps={inputProps} 
-                                                                select="range"
-                                                                showRangeLabels={true}
-                                                                locale={localeZh}
-                                                                // rangeStartLabel="开始日期"
-                                                                // rangeEndLabel="结束日期"
-                                                                display='anchored'/>
-                                                            {/* <Input type='text' placeholder='开始日期' inputStyle='box' name={`events[${index}].startDate`} /> */}
-                                                        </div>
-                                                    </Grid>
+                                                        <Grid item xs={7} sm={4.5} md={4.5}>
+                                                            <div className="md-mobile-picker-header">
+                                                                <Datepicker 
+                                                                    controls={['date']} 
+                                                                    inputComponent="input" 
+                                                                    inputProps={inputProps} 
+                                                                    select="range"
+                                                                    showRangeLabels={true}
+                                                                    locale={localeZh}
+                                                                    // rangeStartLabel="开始日期"
+                                                                    // rangeEndLabel="结束日期"
+                                                                    display='anchored'/>
+                                                                {/* <Input type='text' placeholder='开始日期' inputStyle='box' name={`events[${index}].startDate`} /> */}
+                                                            </div>
+                                                        </Grid>
 
-                                                    <Grid item xs={2.5} sm={.85} md={.6} />
-                                                    <Grid item xs={2} sm={2} md={2.6}>
-                                                        <MdiDeleteCircle className="delete-icon" onClick={() => handleRemoveEvent(index)} />
-                                                    </Grid>  
-                                            
-                                                    
+                                                        <Grid item xs={2.5} sm={1} md={0.98} />
+
+                                                        <Grid item xs={2} sm={2} md={2}>
+                                                            <MdiDeleteCircle className="delete-icon" onClick={() => handleRemoveEvent(index)} />
+                                                        </Grid>  
+                                                      
                                                 </div>
                                             </div>
                                         ))}
