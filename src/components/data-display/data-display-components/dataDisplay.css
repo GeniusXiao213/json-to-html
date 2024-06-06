@@ -4,7 +4,8 @@
     line-height: 1.15em !important;
     font-weight: 600 !important;
     color: rgba(0, 0, 0, .87) !important;
-    letter-spacing: 4px !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase;
 }
 
 .title-divider{

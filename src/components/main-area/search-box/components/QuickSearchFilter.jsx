@@ -101,7 +101,7 @@ const QuickSearchFilter = () => {
               <MenuItem value="germany"><DE className="country-flag" />德国</MenuItem>
               <MenuItem value="greece"><GR className="country-flag" />希腊</MenuItem>
               <MenuItem value="israel"><IL className="country-flag" />以色列</MenuItem>
-              <MenuItem value="luxembourg"><LU className="country-flag" />卢森堡"</MenuItem>
+              <MenuItem value="luxembourg"><LU className="country-flag" />卢森堡</MenuItem>
               <MenuItem value="malta"><MT className="country-flag" />马耳他</MenuItem>
               <MenuItem value="norway"><NO className="country-flag" />挪威</MenuItem>
               <MenuItem value="poland"><PL className="country-flag" />波兰</MenuItem>
