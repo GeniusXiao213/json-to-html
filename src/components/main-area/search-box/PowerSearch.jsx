@@ -210,7 +210,7 @@ export const PowerSearch = () => {
                 </div>
               </div>
 
-              <div className="mbsc-row">
+              <div className="extra">
                 <div className="filter-buttons">
                   <PowerSearchAdd />
                 </div>
