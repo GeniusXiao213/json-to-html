@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Tooltip } from '@mui/material';
+import { Box, Grid, Tooltip } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PowerSearchAdd from './PowerSearchAdd';
 import SearchIcon from "@mui/icons-material/Search";
-//import HtmlTooltip from './components/HtmlTooltip';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import './search.css';
 
 import { Input, Page, setOptions, Select } from '@mobiscroll/react';
@@ -225,6 +226,31 @@ export const PowerSearch = () => {
                 </button>
 
               </Box>
+
+              <div>
+                <Grid container className='info-block' 
+                sx={{ 
+                  width:'100%', 
+                  display:'flex',
+                  justifyContent: 'space-around', 
+                  alignItem:'center' }}>
+                  <Grid item xs={2} sm={2} md={2}>
+                    <StarRoundedIcon sx={{ fontSize:'5rem', color:'#bbbdb6', margin:'6px' }}/>
+                  </Grid>
+                  <Grid item xs={10} sm={10} md={10} className='info-text'>
+                    <p className="info-header">
+                      Power Search is only available to our premium subscribers.
+                    </p>
+                    <div className="info-block-link">
+                      {/* <ArrowCircleRightIcon className='right-icon'/> */}
+                      <a href='#'>
+                          Learn more about our premium services.
+                      </a>
+                    </div>
+                    
+                  </Grid>
+                </Grid>
+              </div>
             </div>
           </div>
         </div>
