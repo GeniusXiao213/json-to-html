@@ -134,3 +134,32 @@
   .mbsc-row{
     margin-bottom: 1.5em;
   }
+
+  .info-block {
+    background-color: #fcfff5;
+    color: #2c662d;
+    padding: 8px;
+    box-shadow: 0 0 0 1px #a3c293 inset;
+    margin-top: 20px;
+    height: fit-content;
+  }
+
+  .info-text {
+    display: block;
+    text-align: left;
+  }
+
+  .right-icon {
+    color: #007388;
+  }
+
+  .info-block-link .a{
+    text-decoration: none;
+    color: #007388;
+  }
+
+
+  .star-icon {
+    color: #bbbdb6;
+    font-size: x-large;
+  }
